@@ -1,94 +1,2117 @@
-<!doctype html><html lang='zh-Hant'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>我的還款紀錄</title><style>
-:root{--bg:#f4f0e8;--paper:#fffdf8;--card:#fffdfa;--text:#26312b;--muted:#7d837b;--sage:#708b77;--sage2:#9caf9c;--sageSoft:#e7eee6;--brown:#8a684d;--brownSoft:#efe4d8;--line:#e8e1d7;--danger:#b85f55;--gold:#bd9152;--shadow:0 12px 34px rgba(65,72,62,.09)}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 85% 0,#e5ece2 0,transparent 26%),linear-gradient(180deg,#f8f5ef,#f1ede5);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif}.wrap{max-width:920px;margin:auto;padding:34px 18px 105px}h1{font-family:Georgia,"Noto Serif TC",serif;font-size:32px;font-weight:700;margin:0 0 6px;letter-spacing:1px}.sub{color:var(--muted);font-size:14px;margin-bottom:24px}.sub:after{content:"  ·  Better money, better life";font-family:Georgia,serif;font-style:italic;color:#9b8069}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:30px}.card{background:rgba(255,253,248,.94);border:1px solid rgba(255,255,255,.9);border-radius:22px;padding:19px;box-shadow:var(--shadow);margin-bottom:14px}.summary .card{margin:0;position:relative;overflow:hidden;min-height:112px}.summary .card:before{content:"";position:absolute;width:66px;height:66px;border-radius:50%;right:-19px;top:-22px;background:var(--sageSoft);opacity:.9}.summary .card:nth-child(2):before{background:var(--brownSoft)}.summary .card:nth-child(3):before{background:#e7edf0}.summary .card:nth-child(4){background:linear-gradient(145deg,#dfe9dc,#eef3e9);border:1px solid #f9fbf7}.label{color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.2px}.money{font-size:22px;font-weight:850;margin-top:8px;letter-spacing:-.5px;color:#345343}.summary .card:nth-child(2) .money{color:#80523d}.summary .card:nth-child(3) .money{color:#435c69}.section{display:flex;align-items:center;justify-content:space-between;margin:31px 3px 12px}.section h2{font-family:Georgia,"Noto Serif TC",serif;font-size:20px;margin:0}.section h2:before{content:"";display:inline-block;width:6px;height:19px;border-radius:99px;background:var(--sage);vertical-align:-3px;margin-right:9px}.section{cursor:pointer}.section>button{cursor:pointer}.collapse-arrow{margin-left:auto;margin-right:10px;width:34px;height:34px;padding:0;border-radius:50%;background:var(--sageSoft);color:#52685a;box-shadow:none;font-size:18px;display:grid;place-items:center}.collapse-arrow.open{transform:rotate(180deg)}.collapsible{overflow:hidden;transition:max-height .28s ease,opacity .22s ease}.collapsible.closed{display:none}button{border:0;border-radius:13px;padding:10px 14px;font-weight:750;cursor:pointer;background:var(--sage);color:#fff;box-shadow:0 5px 14px rgba(70,99,77,.13);transition:.18s}button:hover{transform:translateY(-1px);filter:brightness(.98)}.ghost{background:var(--sageSoft);color:#52685a;box-shadow:none}.danger{background:#f8e9e6;color:var(--danger);box-shadow:none}.row{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px}.row:last-child{border-bottom:0}.big{font-size:27px;font-weight:850;letter-spacing:-.7px;color:#3e5848}.progress{height:9px;background:#e9ebe5;border-radius:99px;overflow:hidden;margin:14px 0 9px}.progress i{display:block;height:100%;background:linear-gradient(90deg,#a8bda7,#718e78);border-radius:99px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.debt{transition:.2s;border-left:4px solid #a8b9aa}.debt:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(61,72,63,.12)}.debt-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.debt h3{margin:0 0 5px;font-size:18px}.muted{color:var(--muted);font-size:13px;line-height:1.55}.empty{text-align:center;color:var(--muted);padding:34px 8px;border:1px dashed #d8d3c9;background:rgba(255,253,248,.65);box-shadow:none}.empty:before{content:"🌿";display:block;font-size:25px;margin-bottom:8px;filter:saturate(.55)}dialog{border:0;border-radius:24px;padding:0;max-width:500px;width:calc(100% - 28px);box-shadow:0 30px 90px rgba(45,52,46,.25);background:#fffdf8}dialog::backdrop{background:rgba(40,46,41,.42);backdrop-filter:blur(3px)}form{padding:24px}form h3{margin:0 0 19px;font-size:21px}label{display:block;font-size:13px;font-weight:700;margin:13px 0 7px;color:#626a63}input,textarea{width:100%;border:1px solid #dedbd2;border-radius:13px;padding:12px 13px;font:inherit;background:#fff;outline:none;transition:.15s}input:focus,textarea:focus{border-color:#91a792;box-shadow:0 0 0 3px rgba(112,139,119,.13)}textarea{min-height:76px;resize:vertical}.form-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:21px}.history{margin-top:14px;background:#f7f5ef;border-radius:16px;padding:0 12px}.history-item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--line)}.history-item:first-child{border-top:0}.history-item button{padding:6px 9px;font-size:12px}.card b{font-weight:780}body:before{content:"";position:fixed;left:0;bottom:0;width:160px;height:210px;pointer-events:none;opacity:.18;background:radial-gradient(ellipse at 25% 100%,#6e8b70 0 12%,transparent 13%),radial-gradient(ellipse at 45% 76%,#8fa48e 0 10%,transparent 11%),radial-gradient(ellipse at 18% 62%,#7c997e 0 9%,transparent 10%);z-index:-1}@media(max-width:760px){.summary{grid-template-columns:1fr 1fr}.wrap{padding-top:24px}.sub:after{display:block;margin-top:4px}.summary .card{min-height:100px}}@media(max-width:480px){.wrap{padding:20px 13px 88px}h1{font-size:28px}.summary{gap:9px}.summary .card{padding:15px;border-radius:18px;min-height:94px}.money{font-size:19px}.card{border-radius:19px;padding:16px}.section{margin-top:25px}.section h2{font-size:18px}.section button{padding:9px 11px}.debt-head .big{font-size:22px}.actions button{flex:1}}
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#171417"><link rel="manifest" href="./manifest.json"><title>My Life ♡</title>
+<style>
+*{box-sizing:border-box}html,body{max-width:100%;overflow-x:hidden;overscroll-behavior-x:none}body{margin:0;background:#151216;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif}.bg{position:fixed;inset:0;z-index:-2;background:linear-gradient(#100d10aa,#100d10e8),linear-gradient(135deg,#71545f,#171417);background-size:cover;background-position:center;transition:.35s}.app{max-width:520px;margin:auto;padding:max(28px,calc(18px + env(safe-area-inset-top))) 16px calc(110px + env(safe-area-inset-bottom))}.head{display:flex;justify-content:space-between;align-items:flex-start}.brand{font:italic 45px/1.05 Georgia,serif}.sub{font-size:12px;letter-spacing:3px;color:#d9cdd1;margin-top:8px}.gear{border:1px solid #ffffff40;background:#211b20cc;color:#fff;border-radius:50%;width:42px;height:42px;font-size:19px}
+.stage{height:420px;contain:layout;transform:translateZ(0);touch-action:pan-y;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;position:relative;perspective:1100px;-webkit-perspective:1100px;position:relative;perspective:1100px;margin-top:20px;overflow:hidden}.card{will-change:transform,opacity;touch-action:none;user-select:none;-webkit-user-select:none;position:absolute;left:50%;top:14px;width:250px;height:365px;margin-left:-125px;border-radius:26px;overflow:hidden;border:1px solid #ffffff70;box-shadow:0 22px 48px #000b;background:linear-gradient(145deg,#876b75,#30262c);transition:transform .24s cubic-bezier(.2,.8,.2,1),opacity .2s;transform-style:preserve-3d;-webkit-transform-style:preserve-3d}.card img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}.card .fallback{height:100%;display:grid;place-items:center;font-size:76px}.shade{position:absolute;inset:0;background:linear-gradient(transparent 40%,#090709e8 88%)}.info{position:absolute;left:18px;right:18px;bottom:24px;z-index:5}.info b{font:26px Georgia,serif}.info p{font-size:13px;color:#f1dce3;margin:6px 0 12px}.photoBtn{position:relative;z-index:20;touch-action:manipulation;-webkit-tap-highlight-color:transparent;border:1px solid #ffffff66;margin:4px 5px 0 0;background:#171217b8;color:#fff;border-radius:18px;padding:8px 11px}.a{transform:translate3d(0,0,70px) scale(1.015);z-index:9}.l{transform:translate3d(-58%,8px,-45px) rotateY(29deg) scale(.80);opacity:.72;z-index:6}.r{transform:translate3d(58%,8px,-45px) rotateY(-29deg) scale(.80);opacity:.72;z-index:6}.farL{transform:translate3d(-92%,16px,-95px) rotateY(36deg) scale(.65);opacity:.34;z-index:3}.farR{transform:translate3d(92%,16px,-95px) rotateY(-36deg) scale(.65);opacity:.34;z-index:3}.off{opacity:0;transform:scale(.5);pointer-events:none}.dots{text-align:center;margin-top:-8px}.dot{display:inline-block;width:22px;height:5px;border-radius:8px;background:#ffffff36;margin:3px}.dot.on{background:#f2c5d0}
+.glass{background:#211c20b8;border:1px solid #ffffff35;border-radius:22px}.hello{margin-top:13px;padding:16px 18px}.hello b{font:21px Georgia,serif}.muted{font-size:13px;color:#d9cfd2}.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:10px}.quick4{grid-template-columns:repeat(4,1fr)}.quick4 button{font-size:13px;padding-left:2px;padding-right:2px}.quick button,.action{border:1px solid #ffffff35;background:#211c20c9;color:#fff;border-radius:16px;padding:13px 7px}.memoryAdd{width:100%;margin:0 0 14px;padding:13px;border:1px solid #ffffff45;border-radius:16px;background:linear-gradient(135deg,#f2c5d0,#dca9b8);color:#33232a;font-weight:800;font-size:16px}.panel{display:none;margin-top:12px;padding:17px;margin-bottom:88px}.panel.on{display:block}.item{padding:12px 0;border-bottom:1px solid #ffffff20}.item img{width:62px;height:62px;border-radius:11px;object-fit:cover;vertical-align:middle;margin-right:9px}
+.fab{position:fixed;right:max(22px,calc((100vw - 520px)/2 + 22px));bottom:calc(92px + env(safe-area-inset-bottom));z-index:35;width:58px;height:58px;border:1px solid #ffffff55;border-radius:50%;background:#f2c5d0;color:#2b2024;font-size:34px;line-height:1;box-shadow:0 12px 30px #0008;display:none}.fab.on{display:block}.nav{position:fixed;z-index:30;left:50%;bottom:calc(9px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(490px,calc(100% - 22px));height:70px;display:flex;align-items:center;justify-content:space-around}.nav button{border:0;background:none;color:#ddd;font-size:11px}.nav span{display:block;font-size:20px;margin-bottom:4px}.nav .on{color:#f2c5d0}
+.modal{touch-action:pan-y;position:fixed;inset:0;background:#000b;display:none;align-items:flex-end;z-index:60}.modal.on{display:flex}.sheet{width:100%;max-width:520px;margin:auto;background:#211b20;padding:20px;border-radius:26px 26px 0 0;max-height:90vh;overflow:auto}input,select,textarea{width:100%;margin:6px 0;padding:12px;border-radius:13px;border:1px solid #ffffff35;background:#ffffff0d;color:#fff;font-size:16px}option{color:#111}textarea{min-height:80px}.primary{width:100%;padding:13px;border:0;border-radius:14px;background:#f2c5d0;color:#2b2024;font-weight:700;margin-top:8px}.close{float:right}.preview{display:flex;gap:8px;overflow:auto}.preview img{width:75px;height:75px;border-radius:11px;object-fit:cover}
+@media(max-width:390px){.brand{font-size:39px}.stage{height:390px}.card{width:225px;height:335px;margin-left:-112.5px}}
 
-/* App navigation redesign */
-body{padding-bottom:82px}.wrap{max-width:760px}.app-page{display:none}.app-page.active{display:block}.home-hero{background:linear-gradient(145deg,#eef3ea,#fffaf2);border:1px solid #e7e0d5;border-radius:28px;padding:24px;box-shadow:var(--shadow);margin-bottom:18px}.home-hero .month{color:var(--muted);font-size:13px}.home-hero .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.home-hero .hero-item{background:rgba(255,255,255,.72);border-radius:18px;padding:16px}.home-links{display:grid;gap:11px}.home-link{width:100%;display:flex;align-items:center;justify-content:space-between;text-align:left;background:var(--paper);color:var(--text);border:1px solid var(--line);box-shadow:var(--shadow);padding:17px 18px;border-radius:20px}.home-link:hover{filter:none}.home-link strong{display:block;font-size:16px}.home-link span{color:var(--muted);font-size:13px}.page-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.page-head h2{margin:0;font-family:Georgia,"Noto Serif TC",serif;font-size:25px}.bottom-nav{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);width:min(94%,620px);height:66px;background:rgba(255,253,248,.95);backdrop-filter:blur(12px);border:1px solid #e8e1d7;border-radius:22px;box-shadow:0 16px 45px rgba(55,65,57,.16);display:grid;grid-template-columns:repeat(5,1fr);z-index:50;padding:6px}.nav-btn{background:transparent;color:#7b827b;box-shadow:none;border-radius:16px;padding:5px 2px;font-size:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}.nav-btn:hover{transform:none;filter:none}.nav-btn .ico{font-size:19px;line-height:1}.nav-btn.active{background:var(--sageSoft);color:#45604d}.settings-card{padding:20px}.settings-card h3{margin:0 0 7px}.page-note{margin:-9px 0 18px;color:var(--muted);font-size:13px}.summary{display:none!important}#currentMonthPanel{display:none}.section{cursor:default}.section .collapse-arrow{display:none}.collapsible.closed{display:block}.section{margin-top:18px}.section h2:before{display:none}@media(max-width:480px){.wrap{padding:20px 13px 100px}.home-hero{padding:19px;border-radius:23px}.home-hero .hero-grid{grid-template-columns:1fr 1fr;gap:9px}.home-hero .hero-item{padding:13px}.bottom-nav{bottom:8px;height:64px}.page-head h2{font-size:23px}}
-</style></head><body><div class='wrap'>
-<section id='page-home' class='app-page active'>
-  <h1>我的財務</h1><div class='sub'>把這個月最重要的數字留在首頁</div>
-  <div class='home-hero'><div class='month' id='homeMonth'></div><div class='hero-grid'>
-    <div class='hero-item'><div class='label'>本月進帳</div><div class='big' id='homeIncome'>$0</div></div>
-    <div class='hero-item'><div class='label'>本月剩餘可用</div><div class='big' id='homeAvailable'>$0</div></div>
-  </div></div>
-  <div class='home-links'>
-    <button class='home-link' onclick="showPage('mom')"><div><strong>媽媽帳務</strong><span>本月還差</span></div><div><b id='homeMomShort'>$0</b>　›</div></button>
-    <button class='home-link' onclick="showPage('debt')"><div><strong>我的債務</strong><span>目前剩餘債務</span></div><div><b id='homeDebt'>$0</b>　›</div></button>
-  </div>
-</section>
-<section id='page-income' class='app-page'><div class='page-head'><h2>每月進帳</h2><button onclick='openIncome()'>＋ 新增</button></div><div class='page-note'>記錄每個月實際進帳與備註。</div><div id='incomeList'></div></section>
-<section id='page-mom' class='app-page'><div class='page-head'><h2>媽媽帳務</h2><button onclick='openMom()'>＋ 新增月份</button></div><div class='page-note'>每月基準、信貸、台新週轉金與實際給媽媽的金額。</div><div id='momList'></div></section>
-<section id='page-debt' class='app-page'><div class='page-head'><h2>我的債務</h2><button onclick='openDebt()'>＋ 新增債務</button></div><div class='page-note'>手機貸或其他債務都可以自己新增。</div><div id='debtList'></div></section>
-<section id='page-settings' class='app-page'><div class='page-head'><h2>設定</h2></div><div class='card settings-card'><h3>資料備份與還原</h3><div class='muted'>備份所有進帳、媽媽帳務、債務與還款紀錄。換裝置時可用備份檔還原。</div><div class='actions'><button onclick='exportBackup()'>↓ 匯出備份</button><button class='ghost' onclick='document.getElementById("backupFile").click()'>↑ 匯入備份</button></div><input id='backupFile' type='file' accept='.json,application/json' style='display:none' onchange='importBackup(event)'><div class='muted' id='backupStatus' style='margin-top:12px'></div></div></section>
+.startupCard{pointer-events:none}.memoryTimeline{padding:4px 0 12px}
+.memoryYear{font:700 25px Georgia,serif;margin:16px 0 10px}
+.memoryMonth{display:grid;grid-template-columns:46px 1fr;gap:10px;margin:0 0 18px}
+.monthRail{position:relative;font:700 20px Georgia,serif;color:#f3dce3;text-align:center}
+.monthRail:after{content:"";position:absolute;top:30px;bottom:-18px;left:50%;width:1px;background:#f2c5d066}
+.memoryPost{content-visibility:auto;contain-intrinsic-size:360px;overflow:hidden;border:1px solid #ffffff28;border-radius:20px;background:#ffffff09;margin-bottom:12px}
+.memoryHero{position:relative;height:210px;background:#2b2228}
+.memoryHero img{width:100%;height:100%;object-fit:cover;display:block}
+.memoryCount{position:absolute;right:10px;bottom:9px;padding:5px 8px;border-radius:12px;background:#0009;font-size:12px}
+.memoryBody{padding:13px 14px 15px}
+.memoryBody h3{font-size:19px;margin:0 0 6px}
+.memoryMeta{font-size:12px;color:#e4d4d9;margin-bottom:7px}
+.memoryMood{display:inline-block;margin:4px 0 8px;padding:5px 9px;border-radius:999px;background:#f2c5d01c;color:#f5d9e1}
+.memoryStory{color:#eee2e6;line-height:1.65;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.memoryOpen{width:100%;margin-top:10px;padding:10px;border:1px solid #ffffff35;border-radius:13px;background:#ffffff0b;color:#fff}
+.detailModal{position:fixed;inset:0;z-index:80;background:#151216;display:none;overflow:auto}
+.detailModal.on{display:block}
+.detailWrap{max-width:520px;margin:auto;padding:max(18px,env(safe-area-inset-top)) 16px 110px}
+.detailTop{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.detailTop button{border:1px solid #ffffff35;background:#211c20;color:#fff;border-radius:50%;width:42px;height:42px;font-size:20px}
+.detailTitle{font-weight:800;font-size:18px}
+.detailMainPhoto{width:100%;height:420px;object-fit:cover;border-radius:22px;border:1px solid #ffffff40;background:#2b2228}
+.detailThumbs{display:flex;gap:8px;overflow:auto;padding:10px 0}
+.detailThumbs img{width:72px;height:72px;object-fit:cover;border-radius:12px;border:2px solid transparent}
+.detailThumbs img.on{border-color:#f2c5d0}
+.detailContent{padding:8px 4px}
+.detailContent h1{font:700 29px Georgia,"Noto Sans TC",serif;margin:8px 0}
+.detailInfo{line-height:1.8;color:#e5d6db}
+.detailStory{white-space:pre-wrap;line-height:1.8;font-size:16px;margin-top:12px}
+.memoryEmpty{text-align:center;padding:38px 12px;color:#d7c9ce}
+
+
+.coverSettings{display:grid;gap:9px;margin:12px 0 20px}
+.coverRow{display:grid;grid-template-columns:52px 1fr auto;gap:11px;align-items:center;padding:9px;border:1px solid #ffffff22;border-radius:15px;background:#ffffff08}
+.coverMini{width:52px;height:64px;border-radius:11px;object-fit:cover;background:#3b2e35;display:grid;place-items:center;font-size:22px}
+.coverName b{display:block}.coverName span{font-size:11px;color:#cdbfc4}
+.coverChoose{border:1px solid #ffffff35;background:#ffffff0c;color:#fff;border-radius:12px;padding:9px 10px}
+
+.tapHint{display:inline-block;margin-top:7px;font-size:11px;letter-spacing:1px;color:#e6d5daaa}
+.card.a{cursor:pointer}
+
+/* V6 clean home */
+.quick,.quickActions,#quickActions{display:none!important}
+.tapHint{display:none!important}
+
+/* BEAUTY 專屬相簿 */
+.beautyGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.beautyCard{overflow:hidden;border:1px solid #ffffff25;border-radius:18px;background:#ffffff08}
+.beautyPhotoBtn{display:block;width:100%;padding:0;border:0;background:none}.beautyPhotoBtn img,.beautyNoPhoto{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.beautyNoPhoto{display:grid;place-items:center;background:#352b30;font-size:34px}
+.beautyText{padding:11px}.beautyDate{font-size:11px;color:#d9c8ce}.beautyText h3{font-size:17px;margin:4px 0}
+.beautySub,.beautyPrice{font-size:12px;color:#efd5de;margin-top:3px}.beautyText p{font-size:12px;line-height:1.5;color:#d7c9ce}
+.beautyDelete{border:0;background:none;color:#a9989f;padding:7px 0 0;font-size:11px}
+.beautyEmpty{text-align:center;padding:30px 8px;color:#ddd0d5}.beautyEmpty span{font-size:12px;color:#a99ba0}
+.photoViewer{position:fixed;inset:0;z-index:150;background:#090709f2;display:none;align-items:center;justify-content:center}.photoViewer.on{display:flex}
+.viewerPhoto{max-width:100%;max-height:84vh;object-fit:contain}.viewerClose{position:absolute;top:max(18px,env(safe-area-inset-top));right:18px;width:44px;height:44px;border:1px solid #ffffff44;border-radius:50%;background:#171317;color:#fff;font-size:27px;z-index:2}
+.viewerCount{position:absolute;top:max(31px,calc(env(safe-area-inset-top) + 12px));left:50%;transform:translateX(-50%);font-size:12px}.viewerNav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:58px;border:0;border-radius:13px;background:#0008;color:#fff;font-size:35px;z-index:2}.viewerPrev{left:9px}.viewerNext{right:9px}
+
+/* V6.3 統一分類視覺 */
+.categoryGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.categoryCard{overflow:hidden;border:1px solid #ffffff24;border-radius:19px;background:#ffffff08}
+.categoryPhotoBtn{display:block;width:100%;padding:0;border:0;background:none}
+.categoryPhotoBtn img,.categoryNoPhoto{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.categoryNoPhoto{display:grid;place-items:center;background:linear-gradient(145deg,#58414b,#241c21);font-size:34px}
+.categoryText{padding:11px}.categoryDate,.spendDate,.todoDate{font-size:11px;color:#cdbdc3}
+.categoryText h3,.spendCard h3,.todoCard h3{margin:4px 0;font-size:17px}
+.categoryMeta,.categoryPrice{font-size:12px;color:#efd3dc;margin-top:3px}
+.categoryText p,.todoCard p{font-size:12px;line-height:1.5;color:#d6c8cd;margin:6px 0}
+.categoryDelete{border:0;background:none;color:#a99aa0;padding:6px 0 0;font-size:11px}
+.categoryEmpty{text-align:center;padding:32px 10px;color:#ded1d6}.categoryEmpty span{font-size:12px;color:#aa9da2}
+.spendCards,.todoCards{display:grid;gap:10px}
+.spendCard{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:16px;border:1px solid #ffffff24;border-radius:18px;background:#ffffff08}
+.spendCat{font-size:11px;color:#bdaeb4}.spendRight{text-align:right}.spendRight strong{display:block;font:700 21px Georgia,serif;color:#f2cbd6}
+.spendRight button,.todoDelete{border:0;background:none;color:#9f9096;font-size:11px;margin-top:8px}
+.todoCard{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:start;padding:15px;border:1px solid #ffffff24;border-radius:18px;background:#ffffff08}
+.todoCard input{width:21px;height:21px;margin-top:5px}.todoCard.done{opacity:.5}.todoCard.done h3{text-decoration:line-through}
+.todoDelete{font-size:20px;margin:0}
+
+.recordActions{display:flex;gap:7px;align-items:center;margin-top:9px}
+.recordActions button,.todoSide button{border:1px solid #ffffff28;background:#ffffff08;color:#d6c6cc;border-radius:10px;padding:6px 9px;font-size:11px}
+.recordActions .categoryDelete,.recordActions .beautyDelete{border:0;background:none;color:#9f9096}
+.todoSide{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
+
+.beautyCard,.categoryCard,.spendCard,.todoCard,.memoryPost{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.beautyCard:active,.categoryCard:active,.spendCard:active,.todoCard:active,.memoryPost:active{transform:scale(.985);transition:transform .08s}
+.detailEdit{width:100%;margin-top:20px;padding:13px;border:1px solid #ffffff35;border-radius:14px;background:#ffffff0b;color:#fff;font-size:14px}
+
+/* V6.6 iPhone 表單修正 */
+*,*::before,*::after{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden;overscroll-behavior-x:none}
+input,select,textarea{box-sizing:border-box;max-width:100%;min-width:0}
+input[type="date"]{
+  display:block;
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  -webkit-appearance:none;
+  appearance:none;
+}
+.modal{
+  position:fixed!important;
+  inset:0!important;
+  overflow:hidden!important;
+  overscroll-behavior:contain;
+  touch-action:none;
+}
+.modal .sheet{
+  position:absolute;
+  left:0;right:0;bottom:0;
+  width:100%;
+  max-width:520px;
+  max-height:min(90dvh,90vh);
+  margin:0 auto;
+  overflow-y:auto;
+  overflow-x:hidden;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  touch-action:pan-y;
+}
+body.modalLocked{
+  position:fixed;
+  width:100%;
+  left:0;
+  right:0;
+  overflow:hidden!important;
+}
+
+.settingSection{padding:16px 0 20px;border-bottom:1px solid #ffffff18;margin-bottom:16px}
+.settingSection h3{margin:0 0 5px;font-size:17px}
+.settingSection input{width:100%;margin-top:12px}
+.primarySettingBtn{width:100%;margin-top:10px;padding:12px 14px;border:0;border-radius:13px;background:#efc1cf;color:#2b2025;font-weight:700;font-size:14px}
+
+/* V6.9 MEMORY 心情選擇 */
+.moodLabel{margin:14px 0 9px;color:#d8cbd0;font-size:14px}
+.moodPicker{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:12px}
+.moodPicker button{min-width:0;padding:11px 5px;border:1px solid #ffffff24;border-radius:14px;background:#ffffff08;color:#e9dde1;font-size:22px}
+.moodPicker button span{display:block;margin-top:4px;font-size:12px}
+.moodPicker button.selected{border-color:#efbfd0;background:#efbfd01c;box-shadow:inset 0 0 0 1px #efbfd0}
+.moodPicker button:active{transform:scale(.97)}
+
+.fieldLabel{display:block;margin:14px 0 8px;color:#d9ccd1;font-size:14px}
+#memoryFields{padding-top:4px}
+#memoryFields input,#memoryFields textarea{width:100%}
+#memoryStory{min-height:135px}
+</style>
+
+
+
+
+
+
+<style id="pastelLavenderBlueTheme">
+:root{
+  --ink:#283657;
+  --muted:#8290b0;
+  --lav:#d9d0f5;
+  --lav2:#eee9ff;
+  --blue:#c9ddfb;
+  --blue2:#e8f2ff;
+  --rose:#f3d3df;
+  --paper:#fbfbff;
+  --line:#dfe4f2;
+}
+html,body{background:#f6f7ff;color:var(--ink)}
+.bg{
+  background:
+    radial-gradient(circle at 8% 12%,rgba(223,214,250,.72) 0 12%,transparent 31%),
+    radial-gradient(circle at 91% 15%,rgba(207,229,255,.78) 0 13%,transparent 33%),
+    radial-gradient(circle at 88% 57%,rgba(247,216,230,.48) 0 10%,transparent 30%),
+    radial-gradient(circle at 16% 78%,rgba(216,232,255,.58) 0 11%,transparent 31%),
+    linear-gradient(145deg,#faf8ff 0%,#eef5ff 42%,#f8f1fb 72%,#f8fbff 100%)!important;
+}
+.brand,.panel h2,.memoryBody h3,.memoryYear{color:#273657}
+.sub,.muted,.memoryMeta,.memoryEmpty{color:#8792ad}
+.gear,.quick button,.action,.recordActions button,.detailTop button,.detailEdit,.coverChoose{
+  border-color:#dfe4f2;background:rgba(255,255,255,.72);color:#405071
+}
+.dot{background:#d9dce8}.dot.on{background:#b9abe6}
+.glass,.memoryPost,.categoryCard,.beautyCard,.spendCard,.todoCard,.coverRow{
+  background:rgba(255,255,255,.76);
+  border-color:#e0e4f1;
+  box-shadow:0 10px 30px rgba(82,99,145,.08);
+  backdrop-filter:blur(10px);
+}
+.memoryAdd,.primary,.primarySettingBtn{
+  background:linear-gradient(100deg,#efd7eb 0%,#d8d0f6 34%,#c9dcfb 70%,#e1d5f6 100%);
+  color:#334160;border-color:transparent
+}
+.fab{
+  background:linear-gradient(145deg,#d9cef6,#bfd8fb 65%,#edcfdf);
+  color:#fff;border-color:#fff9;
+  box-shadow:0 12px 28px rgba(94,108,163,.18)
+}
+.nav{
+  background:rgba(255,255,255,.82);
+  border-color:#e0e5f2;
+  box-shadow:0 12px 35px rgba(75,92,137,.10);
+  backdrop-filter:blur(14px)
+}
+.nav button{color:#66728e}.nav .on{color:#9a82d0}
+.sheet{background:#f8f8ff;color:#293758}
+.modal{background:rgba(49,57,84,.35)}
+input,select,textarea{border-color:#dfe3ef;background:#fdfdff;color:#33405f}
+.monthRail{
+  color:#fff;
+  background:linear-gradient(145deg,#d9c9f3 0%,#bcd4fa 68%,#e9cbdc 100%);
+  border-color:#f6f3ff;
+  box-shadow:0 8px 20px rgba(100,105,160,.15)
+}
+.monthRail:after{background:linear-gradient(#c5b8e8,#c6d9f4)}
+.memoryHero{background:#e9edf7}
+.memoryMood{background:#ded5f055;color:#7667a4}
+.memoryStory{color:#53617c}
+.memoryOpen{border-color:#e0e4f1;background:linear-gradient(100deg,#f3eafa,#e8f1ff);color:#43506d}
+.recordActions .categoryDelete,.recordActions .beautyDelete{color:#858da2}
+.categoryNoPhoto,.beautyNoPhoto{background:linear-gradient(145deg,#e8e0f7,#dceafb);color:#fff}
+.detailModal{background:#f6f7ff;color:#293758}
+.moodPicker button{border-color:#e0e4f1;background:#fdfdff;color:#52607b}
+.moodPicker button.selected{border-color:#c3b5e7;background:#e7e0f766;box-shadow:inset 0 0 0 1px #c3b5e7}
+
+/* subtle no-flower decorative sky motifs */
+.bg:before,.bg:after{content:"";position:fixed;pointer-events:none;z-index:0;opacity:.42}
+.bg:before{
+  width:78px;height:78px;right:8%;top:9%;
+  border-radius:50%;
+  box-shadow:-19px 8px 0 0 rgba(255,255,255,.92);
+  background:transparent
+}
+.bg:after{
+  width:5px;height:5px;left:12%;top:17%;
+  background:#fff;border-radius:50%;
+  box-shadow:42px 26px 0 1px rgba(255,255,255,.9),155px -35px 0 1px rgba(255,255,255,.8),245px 42px 0 0 rgba(255,255,255,.9)
+}
+</style>
+
+
+<style id="readableCardTitles">
+/* 首頁輪播卡片：英文標題加亮、加粗、加陰影，避免被照片吃掉 */
+.card .title,
+.card h2,
+.card h3,
+.cardTitle,
+.card-title,
+.carousel .title,
+.carousel-card .title,
+.slide .title{
+  color:#fff !important;
+  font-weight:800 !important;
+  letter-spacing:.5px !important;
+  text-shadow:
+    0 2px 8px rgba(0,0,0,.95),
+    0 0 18px rgba(0,0,0,.75) !important;
+}
+
+/* 卡片副標也稍微提高可讀性 */
+.card .desc,
+.card .subtitle,
+.cardSubtitle,
+.card-subtitle,
+.carousel-card .subtitle{
+  color:rgba(255,255,255,.94) !important;
+  text-shadow:0 2px 7px rgba(0,0,0,.9) !important;
+}
+
+/* 若原版卡片使用 overlay 文字區，增加底部漸層，不改照片本身 */
+.cardOverlay,
+.card-overlay,
+.carouselOverlay,
+.carousel-overlay{
+  background:linear-gradient(
+    to top,
+    rgba(8,10,20,.82) 0%,
+    rgba(8,10,20,.48) 42%,
+    rgba(8,10,20,0) 76%
+  ) !important;
+}
+
+/* FAVORITE / MEMORY 等首頁英文大字 */
+[data-key] .title,
+[data-cat] .title{
+  color:#fff !important;
+  text-shadow:0 2px 9px #000,0 0 16px rgba(0,0,0,.72) !important;
+}
+</style>
+
+
+<style id="actualCarouselTitleFix">
+/* 實際輪播卡片文字結構是 .info b / .info p */
+.card .info{
+  left:20px !important;
+  right:20px !important;
+  bottom:25px !important;
+}
+.card .info b{
+  display:inline-block !important;
+  color:#ffffff !important;
+  font:700 29px/1.05 Georgia,serif !important;
+  letter-spacing:.8px !important;
+  text-shadow:
+    0 2px 4px rgba(0,0,0,1),
+    0 4px 12px rgba(0,0,0,.95),
+    0 0 22px rgba(0,0,0,.75) !important;
+  -webkit-text-stroke:.35px rgba(255,255,255,.9);
+}
+.card .info p{
+  color:#ffffff !important;
+  font-size:14px !important;
+  font-weight:650 !important;
+  text-shadow:
+    0 2px 5px rgba(0,0,0,1),
+    0 0 12px rgba(0,0,0,.9) !important;
+}
+.card .shade{
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 28%,
+    rgba(0,0,0,.08) 48%,
+    rgba(0,0,0,.58) 73%,
+    rgba(0,0,0,.90) 100%
+  ) !important;
+}
+.card.a .info b{font-size:30px !important}
+</style>
+
+
+<style id="memoryTimelineLayoutFix">
+/* 修正月份區塊被拉成長條：固定為圓形，不再跟回憶卡高度一起伸長 */
+.memoryMonth{
+  display:grid !important;
+  grid-template-columns:82px minmax(0,1fr) !important;
+  gap:16px !important;
+  align-items:start !important;
+  position:relative !important;
+  margin:0 0 24px !important;
+}
+.monthRail{
+  width:72px !important;
+  height:72px !important;
+  min-width:72px !important;
+  min-height:72px !important;
+  box-sizing:border-box !important;
+  align-self:start !important;
+  justify-self:center !important;
+  border-radius:50% !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 !important;
+  font:700 29px/1 Georgia,serif !important;
+  overflow:visible !important;
+  position:relative !important;
+}
+.monthRail span{
+  display:block !important;
+  margin-top:6px !important;
+  font-size:12px !important;
+  line-height:1 !important;
+}
+.monthRail:after{
+  content:"" !important;
+  position:absolute !important;
+  top:72px !important;
+  left:50% !important;
+  transform:translateX(-50%) !important;
+  width:2px !important;
+  height:calc(100vh + 250px) !important;
+  bottom:auto !important;
+  border-radius:999px !important;
+  z-index:-1 !important;
+}
+.memoryPost{
+  width:100% !important;
+  min-width:0 !important;
+  box-sizing:border-box !important;
+}
+.memoryTimeline{
+  overflow:visible !important;
+}
+@media(max-width:390px){
+  .memoryMonth{
+    grid-template-columns:70px minmax(0,1fr) !important;
+    gap:10px !important;
+  }
+  .monthRail{
+    width:62px !important;
+    height:62px !important;
+    min-width:62px !important;
+    min-height:62px !important;
+    font-size:26px !important;
+  }
+  .monthRail:after{top:62px !important}
+}
+</style>
+
+
+<style id="greetingCuteAndNoCardShadow">
+/* 只改首頁問候語：較可愛、圓潤；其他字體完全不動 */
+.hello b,
+[data-greeting]{
+  font-family:"Arial Rounded MT Bold","Trebuchet MS","Noto Sans TC",
+              -apple-system,BlinkMacSystemFont,sans-serif !important;
+  font-weight:700 !important;
+  letter-spacing:.02em !important;
+  line-height:1.28 !important;
+  overflow-wrap:anywhere !important;
+  word-break:break-word !important;
+}
+
+/* 卡片不要陰影：輪播卡、問候卡、內容卡都取消外陰影 */
+.card,
+.glass,
+.memoryPost,
+.categoryCard,
+.beautyCard,
+.spendCard,
+.todoCard,
+.coverRow{
+  box-shadow:none !important;
+}
+
+/* 輪播主卡原本的強烈黑色投影也移除 */
+.card.a,
+.carousel .card,
+.carousel-card{
+  box-shadow:none !important;
+}
+</style>
+
+
+<style id="finalUiAndScrollFix">
+/* 問候語卡片：只改版面，不動其他區塊 */
+.hello{
+  padding:18px 20px !important;
+  min-height:104px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  align-items:flex-start !important;
+  gap:8px !important;
+}
+.hello b{
+  display:block !important;
+  width:100% !important;
+  margin:0 !important;
+}
+#greetingText{
+  display:block !important;
+  width:100% !important;
+  font-family:"Arial Rounded MT Bold","Trebuchet MS","Noto Sans TC",
+              -apple-system,BlinkMacSystemFont,sans-serif !important;
+  font-weight:700 !important;
+  line-height:1.35 !important;
+  letter-spacing:.02em !important;
+  overflow-wrap:anywhere !important;
+  word-break:break-word !important;
+}
+.hello .muted{
+  margin:0 !important;
+  font-size:13px !important;
+}
+
+/* 首頁放功能表正中間，稍微突出但不改整體配色 */
+.nav .homeCenter span{
+  font-size:23px !important;
+}
+.nav .homeCenter{
+  font-weight:700 !important;
+}
+
+/* 不要卡片陰影 */
+.card,.glass,.memoryPost,.categoryCard,.beautyCard,.spendCard,.todoCard,.coverRow{
+  box-shadow:none !important;
+}
+
+/* iPhone：頁面本身維持正常捲動 */
+html,body{
+  overflow-x:hidden !important;
+  -webkit-overflow-scrolling:touch !important;
+}
+body:not(.modalLocked){
+  position:static !important;
+  top:auto !important;
+  width:auto !important;
+  overflow-y:auto !important;
+  touch-action:pan-y pinch-zoom !important;
+}
+.stage{
+  touch-action:pan-y !important;
+}
+.card{
+  touch-action:pan-y !important;
+}
+.sheet{
+  overflow-y:auto !important;
+  -webkit-overflow-scrolling:touch !important;
+  touch-action:pan-y !important;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<style id="myLifeV8">
+/* ===== 首頁固定一屏 ===== */
+body.homeFixed{
+  height:100dvh !important;
+  min-height:100dvh !important;
+  overflow:hidden !important;
+}
+body.homeFixed .bg{
+  height:100dvh !important;
+  min-height:100dvh !important;
+  overflow:hidden !important;
+  padding-bottom:0 !important;
+}
+
+/* 輪播維持原本直式卡片，不改成長方形 */
+body.homeFixed .stage{
+  height:clamp(420px,53dvh,570px) !important;
+  min-height:0 !important;
+  margin-bottom:0 !important;
+}
+body.homeFixed .card{
+  height:clamp(400px,51dvh,545px) !important;
+  border-radius:28px !important;
+  box-shadow:none !important;
+}
+body.homeFixed .dots{
+  margin:5px 0 4px !important;
+}
+
+/* 問候語：無框小語錄，使用優雅斜體；內容仍由設定自行修改 */
+body.homeFixed .hello{
+  position:relative !important;
+  height:88px !important;
+  min-height:88px !important;
+  margin:0 28px !important;
+  padding:8px 14px 8px 27px !important;
+  border:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  align-items:flex-start !important;
+  gap:5px !important;
+  overflow:hidden !important;
+}
+body.homeFixed .hello:before{
+  content:"" !important;
+  position:absolute !important;
+  left:5px !important;
+  top:14px !important;
+  bottom:14px !important;
+  width:3px !important;
+  border-radius:99px !important;
+  background:linear-gradient(#b99bea,#a9c8f3,#e7bfd5) !important;
+}
+body.homeFixed .hello:after{display:none !important}
+body.homeFixed .hello b,
+body.homeFixed #greetingText{
+  display:-webkit-box !important;
+  -webkit-box-orient:vertical !important;
+  -webkit-line-clamp:2 !important;
+  overflow:hidden !important;
+  width:100% !important;
+  margin:0 !important;
+  font-family:Georgia,"Times New Roman","Noto Serif TC",serif !important;
+  font-style:italic !important;
+  font-weight:600 !important;
+  letter-spacing:.01em !important;
+  line-height:1.08 !important;
+  color:#31466d !important;
+  overflow-wrap:anywhere !important;
+}
+body.homeFixed .hello .muted{
+  margin:0 !important;
+  font-size:12px !important;
+  font-style:normal !important;
+  color:#8794b0 !important;
+}
+
+/* 首頁只留正中央一個 Home */
+.homeOnlyNav{
+  position:fixed !important;
+  left:50% !important;
+  right:auto !important;
+  bottom:max(12px,env(safe-area-inset-bottom)) !important;
+  transform:translateX(-50%) !important;
+  width:72px !important;
+  height:72px !important;
+  min-width:72px !important;
+  padding:0 !important;
+  margin:0 !important;
+  border-radius:50% !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:rgba(255,255,255,.86) !important;
+  border:1px solid rgba(214,218,238,.9) !important;
+  box-shadow:none !important;
+  z-index:80 !important;
+}
+.homeOnlyButton{
+  width:100% !important;
+  height:100% !important;
+  padding:8px 0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:2px !important;
+  color:#9a7bd7 !important;
+  background:transparent !important;
+  border:0 !important;
+}
+.homeOnlyButton span{font-size:25px !important;line-height:1 !important}
+.homeOnlyButton small{font-size:12px !important;font-weight:700 !important}
+
+/* 首頁不顯示浮動新增按鈕，分類頁仍照原功能 */
+body.homeFixed .fab{display:none !important}
+
+/* 分類頁恢復正常捲動 */
+body:not(.homeFixed){
+  height:auto !important;
+  min-height:100vh !important;
+  overflow-y:auto !important;
+  -webkit-overflow-scrolling:touch !important;
+}
+
+/* 小螢幕只縮輪播，避免擠到底部 */
+@media(max-height:760px){
+  body.homeFixed .stage{height:47dvh !important}
+  body.homeFixed .card{height:45dvh !important}
+  body.homeFixed .hello{height:76px !important;min-height:76px !important}
+  .homeOnlyNav{width:64px !important;height:64px !important;min-width:64px !important}
+}
+</style>
+
+
+
+
+
+<style id="engineeringCarouselFix">
+/* ========= HOME: stable viewport ========= */
+body.homeFixed{
+  height:100dvh !important;
+  min-height:100dvh !important;
+  overflow:hidden !important;
+  overscroll-behavior:none !important;
+}
+body.homeFixed .bg{
+  height:100dvh !important;
+  min-height:100dvh !important;
+  overflow:hidden !important;
+}
+
+/* ========= CAROUSEL: larger portrait cards ========= */
+body.homeFixed .stage{
+  position:relative !important;
+  width:100% !important;
+  height:clamp(500px,59dvh,635px) !important;
+  min-height:0 !important;
+  margin:2px 0 0 !important;
+  overflow:hidden !important;
+  touch-action:pan-x !important;        /* horizontal gesture belongs to carousel */
+  overscroll-behavior-x:contain !important;
+  overscroll-behavior-y:none !important;
+}
+body.homeFixed .stage .card{
+  height:clamp(480px,57dvh,610px) !important;
+  max-height:none !important;
+  border-radius:30px !important;
+  overflow:hidden !important;
+  box-shadow:none !important;
+  touch-action:pan-x !important;
+  user-select:none !important;
+  -webkit-user-select:none !important;
+  -webkit-touch-callout:none !important;
+}
+body.homeFixed .stage img{
+  -webkit-user-drag:none !important;
+  user-select:none !important;
+  pointer-events:none !important;
+}
+body.homeFixed .dots{
+  margin:4px 0 2px !important;
+}
+
+/* ========= GREETING: HOME ONLY ========= */
+body.homeFixed .hello{
+  display:flex !important;
+  width:auto !important;
+  height:82px !important;
+  min-height:82px !important;
+  margin:10px 18px 0 !important;
+  padding:6px 4px 6px 31px !important;
+  border:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  align-items:flex-start !important;
+  gap:4px !important;
+  overflow:hidden !important;
+}
+body.homeFixed .hello:before{
+  content:"" !important;
+  position:absolute !important;
+  left:7px !important;
+  top:13px !important;
+  bottom:13px !important;
+  width:3px !important;
+  border-radius:999px !important;
+  background:linear-gradient(#b99bea,#a8c9f5,#e6b8d3) !important;
+}
+body.homeFixed .hello:after{display:none !important}
+body.homeFixed .hello b,
+body.homeFixed #greetingText{
+  width:100% !important;
+  display:-webkit-box !important;
+  -webkit-box-orient:vertical !important;
+  -webkit-line-clamp:2 !important;
+  overflow:hidden !important;
+  font-family:Georgia,"Times New Roman","Noto Serif TC",serif !important;
+  font-style:italic !important;
+  font-weight:600 !important;
+  line-height:1.08 !important;
+  color:#31466d !important;
+}
+body.homeFixed .hello .muted{
+  margin:0 !important;
+  font-size:12px !important;
+  font-style:normal !important;
+  color:#8794b0 !important;
+}
+body:not(.homeFixed) .hello{
+  display:none !important;
+}
+
+/* ========= SAME HOME BUTTON ON EVERY VIEW ========= */
+.homeOnlyNav{
+  position:fixed !important;
+  left:auto !important;
+  right:20px !important;
+  bottom:calc(16px + env(safe-area-inset-bottom)) !important;
+  transform:none !important;
+  width:62px !important;
+  height:62px !important;
+  min-width:62px !important;
+  margin:0 !important;
+  padding:0 !important;
+  border-radius:50% !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:rgba(255,255,255,.90) !important;
+  border:1px solid rgba(210,210,235,.92) !important;
+  box-shadow:none !important;
+  z-index:999 !important;
+}
+.homeOnlyButton{
+  width:100% !important;
+  height:100% !important;
+  padding:0 !important;
+  margin:0 !important;
+  border:0 !important;
+  border-radius:50% !important;
+  background:transparent !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+.moonHomeIcon{
+  display:block !important;
+  font-family:"Apple Color Emoji","Segoe UI Emoji",sans-serif !important;
+  font-size:31px !important;
+  line-height:1 !important;
+  transform:none !important;
+}
+
+/* Category/record pages: vertical scroll remains reliable */
+body:not(.homeFixed){
+  height:auto !important;
+  min-height:100vh !important;
+  overflow-x:hidden !important;
+  overflow-y:auto !important;
+  -webkit-overflow-scrolling:touch !important;
+  overscroll-behavior-y:auto !important;
+  touch-action:pan-y pinch-zoom !important;
+}
+body:not(.homeFixed) .stage{touch-action:pan-y !important}
+
+/* Smaller iPhones: keep card large, but fit safely */
+@media(max-height:780px){
+  body.homeFixed .stage{height:52dvh !important}
+  body.homeFixed .stage .card{height:50dvh !important}
+  body.homeFixed .hello{
+    height:70px !important;
+    min-height:70px !important;
+    margin-top:6px !important;
+  }
+  .homeOnlyNav{
+    width:56px !important;
+    height:56px !important;
+    min-width:56px !important;
+  }
+  .moonHomeIcon{font-size:28px !important}
+}
+</style>
+
+
+<style id="v84LowerHomeLayout">
+/* 首頁卡片整組再往下一點 */
+body.homeFixed .stage{
+  margin-top:18px !important;
+}
+
+/* 問候語跟著往下一點，保持原本寬度與自動縮字 */
+body.homeFixed .hello{
+  margin-top:20px !important;
+}
+
+/* 螢幕較矮時也保留適當距離，避免底部被擠掉 */
+@media(max-height:780px){
+  body.homeFixed .stage{
+    margin-top:12px !important;
+  }
+  body.homeFixed .hello{
+    margin-top:12px !important;
+  }
+}
+</style>
+
+
+
+
+
+<style id="v86DotsAndScrollFix">
+/* ===== 首頁：卡片 + 卡片下方圓點一起往下 ===== */
+body.homeFixed .stage{
+  margin-top:34px !important;
+  overflow:visible !important;
+}
+
+/* 卡片完整顯示，不切上下圓角 */
+body.homeFixed .stage .card{
+  max-height:calc(100dvh - 300px) !important;
+  overflow:hidden !important;
+}
+
+/* 圓點就是照片下方那一條：跟著整組往下，並保留間距 */
+body.homeFixed .dots{
+  position:relative !important;
+  margin-top:10px !important;
+  transform:translateY(4px) !important;
+}
+
+/* 問候語再跟圓點拉開一點 */
+body.homeFixed .hello{
+  margin-top:28px !important;
+}
+
+/* ===== 分類 / 紀錄頁：一定恢復正常上下滑 ===== */
+html.categoryScroll,
+html.categoryScroll body{
+  height:auto !important;
+  min-height:100% !important;
+  overflow-x:hidden !important;
+  overflow-y:auto !important;
+  -webkit-overflow-scrolling:touch !important;
+  overscroll-behavior-y:auto !important;
+  touch-action:pan-y pinch-zoom !important;
+}
+
+body.categoryScroll{
+  position:static !important;
+  top:auto !important;
+  width:100% !important;
+  height:auto !important;
+  min-height:100vh !important;
+  overflow-y:auto !important;
+}
+
+/* 分類頁不要被首頁固定高度規則鎖住 */
+body.categoryScroll .bg{
+  min-height:100vh !important;
+  height:auto !important;
+  overflow:visible !important;
+}
+body.categoryScroll .app{
+  height:auto !important;
+  min-height:100vh !important;
+  overflow:visible !important;
+  padding-bottom:110px !important;
+}
+body.categoryScroll #panel{
+  overflow:visible !important;
+  touch-action:pan-y !important;
+}
+
+/* 小螢幕：寧可自動縮卡，也不裁卡 */
+@media(max-height:780px){
+  body.homeFixed .stage{
+    margin-top:24px !important;
+    height:49dvh !important;
+  }
+  body.homeFixed .stage .card{
+    height:47dvh !important;
+    max-height:47dvh !important;
+  }
+  body.homeFixed .dots{
+    margin-top:8px !important;
+    transform:translateY(3px) !important;
+  }
+  body.homeFixed .hello{
+    margin-top:18px !important;
+  }
+}
+@media(max-height:700px){
+  body.homeFixed .stage{
+    margin-top:18px !important;
+    height:45dvh !important;
+  }
+  body.homeFixed .stage .card{
+    height:43dvh !important;
+    max-height:43dvh !important;
+  }
+  body.homeFixed .hello{
+    margin-top:12px !important;
+  }
+}
+</style>
+
+
+<style id="v87UnifiedBackground">
+:root{
+  --mylife-bg:
+    radial-gradient(circle at 18% 18%, rgba(238,229,255,.72) 0, rgba(238,229,255,0) 30%),
+    radial-gradient(circle at 82% 28%, rgba(221,239,255,.72) 0, rgba(221,239,255,0) 32%),
+    radial-gradient(circle at 50% 88%, rgba(255,232,242,.42) 0, rgba(255,232,242,0) 34%),
+    linear-gradient(145deg,#f8f7ff 0%,#f5f7ff 48%,#f7f5ff 100%);
+}
+
+/* Same background on home + every category/detail/settings page */
+html,
+body,
+body.homeFixed,
+body.categoryScroll,
+.bg,
+body.categoryScroll .bg{
+  background:var(--mylife-bg) !important;
+  background-attachment:fixed !important;
+}
+
+/* Let the shared background show through instead of category-specific blocks */
+.app,
+body.categoryScroll .app,
+#panel,
+.panel,
+.page,
+.view,
+.sheetPage{
+  background-color:transparent !important;
+}
+</style>
+
+
+<style id="v9UnifiedLargeCards">
+/*
+  不縮首頁卡片。
+  以首頁主卡的視覺尺寸為基準，把其他分類頁的照片卡同步放大。
+*/
+:root{
+  --unified-large-card-w:min(250px, calc(100vw - 72px));
+  --unified-large-card-radius:26px;
+}
+
+/* 首頁維持 V8.7 原本的大卡尺寸 */
+body.homeFixed .stage .card{
+  width:250px !important;
+  height:365px !important;
+  max-height:365px !important;
+  margin-left:-125px !important;
+  border-radius:var(--unified-large-card-radius) !important;
+}
+@media(max-width:390px){
+  body.homeFixed .stage .card{
+    width:225px !important;
+    height:335px !important;
+    max-height:335px !important;
+    margin-left:-112.5px !important;
+  }
+}
+
+/* 其他分類頁：改成單欄置中，卡片寬度跟首頁主卡一致 */
+.categoryGrid,
+.beautyGrid{
+  display:grid !important;
+  grid-template-columns:minmax(0,var(--unified-large-card-w)) !important;
+  justify-content:center !important;
+  gap:16px !important;
+}
+
+/* FAVORITE / HEALTH 等分類卡 */
+.categoryCard,
+.beautyCard{
+  width:var(--unified-large-card-w) !important;
+  max-width:var(--unified-large-card-w) !important;
+  border-radius:var(--unified-large-card-radius) !important;
+  overflow:hidden !important;
+  margin:0 auto !important;
+}
+
+/* 照片區採首頁卡片接近的直式比例，不再是小方格 */
+.categoryPhotoBtn img,
+.categoryNoPhoto,
+.beautyPhotoBtn img,
+.beautyNoPhoto{
+  width:100% !important;
+  aspect-ratio:250 / 300 !important;
+  object-fit:cover !important;
+  display:block !important;
+}
+
+/* 文字區保持清楚，但不額外放大整張卡 */
+.categoryText,
+.beautyText{
+  padding:13px 14px 15px !important;
+}
+
+/* 消費、待辦屬文字卡，不硬拉成照片比例；統一同樣卡寬 */
+.spendCard,
+.todoCard{
+  width:var(--unified-large-card-w) !important;
+  max-width:var(--unified-large-card-w) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  border-radius:var(--unified-large-card-radius) !important;
+}
+
+/* MEMORY 貼文也使用同樣最大寬度 */
+.memoryPost{
+  width:var(--unified-large-card-w) !important;
+  max-width:var(--unified-large-card-w) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  border-radius:var(--unified-large-card-radius) !important;
+}
+
+/* 小手機同步縮放：首頁與其他頁一起縮，不會一邊大一邊小 */
+@media(max-width:390px){
+  :root{ --unified-large-card-w:225px; }
+}
+</style>
+
+
+<style id="v91MemoryFormInteractionFix">
+/* 表單永遠在所有浮動按鈕、首頁按鈕、分類頁內容之上 */
+.modal.on{
+  z-index:3000 !important;
+  pointer-events:auto !important;
+  touch-action:none !important;
+}
+.modal.on .sheet{
+  z-index:3001 !important;
+  pointer-events:auto !important;
+  touch-action:pan-y !important;
+  -webkit-overflow-scrolling:touch !important;
+}
+
+/* 表單中的所有控制項都必須可以點擊 */
+.modal.on input,
+.modal.on textarea,
+.modal.on select,
+.modal.on button,
+.modal.on label,
+.modal.on .moodPicker,
+.modal.on .moodPicker button{
+  pointer-events:auto !important;
+}
+
+/* 心情按鈕明確建立自己的點擊層 */
+#moodPicker{
+  position:relative !important;
+  z-index:5 !important;
+}
+#moodPicker button{
+  position:relative !important;
+  z-index:6 !important;
+  cursor:pointer !important;
+  touch-action:manipulation !important;
+  -webkit-tap-highlight-color:rgba(170,145,220,.12) !important;
+}
+#moodPicker button.selected{
+  border-color:#b8a4e5 !important;
+  background:linear-gradient(135deg,#f3e9fb,#e8edff) !important;
+  box-shadow:inset 0 0 0 1px #b8a4e5 !important;
+}
+
+/* 儲存按鈕不可被右下角月亮蓋住 */
+#saveBtn{
+  position:relative !important;
+  z-index:10 !important;
+  pointer-events:auto !important;
+  touch-action:manipulation !important;
+  margin-bottom:calc(14px + env(safe-area-inset-bottom)) !important;
+}
+
+/* 開啟新增/編輯視窗時，月亮暫時退到表單下面 */
+body:has(.modal.on) .homeOnlyNav{
+  z-index:50 !important;
+  pointer-events:none !important;
+  opacity:0 !important;
+}
+
+/* 表單底部多留安全空間，iPhone Safari 不擋儲存 */
+#addModal .sheet{
+  padding-bottom:calc(24px + env(safe-area-inset-bottom)) !important;
+}
+</style>
+
+
+
+
+
+<style id="v93MemorySavePhotoFix">
+#memoryPhotoPreview{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:9px !important;
+  overflow:visible !important;
+}
+#memoryPhotoPreview .memoryPreviewItem{
+  position:relative !important;
+  width:64px !important;
+  height:64px !important;
+  flex:0 0 64px !important;
+}
+#memoryPhotoPreview .memoryPreviewItem img{
+  width:64px !important;
+  height:64px !important;
+  object-fit:cover !important;
+  border-radius:12px !important;
+  display:block !important;
+}
+#memoryPhotoPreview .memoryPhotoRemove{
+  position:absolute !important;
+  top:-7px !important;
+  right:-7px !important;
+  z-index:40 !important;
+  width:25px !important;
+  height:25px !important;
+  min-width:25px !important;
+  padding:0 !important;
+  border:2px solid white !important;
+  border-radius:50% !important;
+  background:#4d5368 !important;
+  color:white !important;
+  font:700 17px/20px Arial,sans-serif !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  pointer-events:auto !important;
+  touch-action:manipulation !important;
+}
+#saveBtn{
+  pointer-events:auto !important;
+  touch-action:manipulation !important;
+}
+</style>
+
+<style id="v94SaveFeedback">
+#saveBtn:disabled{opacity:.72!important;filter:saturate(.75);pointer-events:none!important}
+</style>
+
+<style id="v95SaveSuccessToast">
+.saveSuccessToast{
+  position:fixed;
+  left:50%;
+  top:calc(env(safe-area-inset-top) + 76px);
+  transform:translate(-50%,-12px) scale(.96);
+  z-index:99999;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:11px 18px;
+  border:1px solid rgba(198,190,230,.78);
+  border-radius:999px;
+  background:rgba(255,255,255,.92);
+  color:#425173;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:.04em;
+  box-shadow:0 8px 24px rgba(73,78,115,.10);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .22s ease,transform .22s ease,visibility .22s;
+}
+.saveSuccessToast.show{
+  opacity:1;
+  visibility:visible;
+  transform:translate(-50%,0) scale(1);
+}
+.saveToastIcon{
+  width:22px;
+  height:22px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:linear-gradient(135deg,#e9d8f5,#d8e8ff);
+  color:#6f68a5;
+  font-size:13px;
+  font-weight:900;
+}
+</style>
+
+</head><body><div id="bg" class="bg"></div><main class="app"><div class="head"><div><div class="brand">My Life ♡</div><div class="sub">把喜歡的日子・過成日常</div></div><button id="settingsBtn" class="gear">⚙︎</button></div><section id="stage" class="stage"></section><div id="dots" class="dots"></div><section class="glass hello"><b><span id="greetingText">Good Day, 美女 ♡</span></b><div id="summary" class="muted"></div></section><div class="quick quick4"><button id="directMemoryBtn">＋ 回憶</button><button data-add="record">＋ 紀錄</button><button data-add="spend">＋ 消費</button><button data-add="todo">＋ 待辦</button></div><section id="panel" class="glass panel"><h2 id="panelTitle"></h2><button id="memoryAddBtn" class="memoryAdd" hidden>＋ 新增回憶 ♡</button><div id="list"></div></section><button id="fab" class="fab" aria-label="新增">＋</button></main>
+<nav class="nav homeOnlyNav">
+      <button data-nav="home" class="on homeOnlyButton" aria-label="回首頁" title="回首頁">
+        <span class="moonHomeIcon">🌙</span>
+      </button>
+    </nav>
+<input id="coverPicker" type="file" accept="image/*" hidden>
+<div id="addModal" class="modal"><div class="sheet"><button class="gear close" data-close="addModal">×</button><h2 id="addTitle">新增</h2><div id="recordFields">
+<select id="recordCat"><option>BEAUTY</option><option>MEMORY</option><option>FAVORITE</option><option>DAILY</option><option>HEALTH</option></select>
+
+<div id="normalRecordFields">
+  <input id="recordTitle" placeholder="標題">
+  <div id="generalDateFields"><div class="fieldLabel">日期</div><input id="recordDate" type="date"></div>
+  <input id="recordPlace" placeholder="店家 / 地點">
+  <input id="recordPrice" type="number" inputmode="decimal" placeholder="金額（可不填）">
+  <label class="fieldLabel">從手機相簿選照片（可多選）</label>
+  <input id="recordPhotos" type="file" accept="image/*" multiple>
+  <div id="photoPreview" class="preview"></div>
+  <textarea id="recordNote" placeholder="備註"></textarea>
 </div>
-<nav class='bottom-nav'>
-<button class='nav-btn active' data-page='home' onclick="showPage('home')"><span class='ico'>⌂</span><span>首頁</span></button>
-<button class='nav-btn' data-page='income' onclick="showPage('income')"><span class='ico'>＄</span><span>進帳</span></button>
-<button class='nav-btn' data-page='mom' onclick="showPage('mom')"><span class='ico'>♡</span><span>媽媽</span></button>
-<button class='nav-btn' data-page='debt' onclick="showPage('debt')"><span class='ico'>▣</span><span>債務</span></button>
-<button class='nav-btn' data-page='settings' onclick="showPage('settings')"><span class='ico'>⚙</span><span>設定</span></button>
-</nav>
-<dialog id='incomeDlg'><form onsubmit='saveIncome(event)'><h3 id='incomeTitle'>新增進帳</h3><input type='hidden' id='incomeId'><label>月份</label><input id='incomeMonth' type='month' required><label>進帳金額</label><input id='incomeAmount' type='number' min='0' required placeholder='例如：80000'><label>備註</label><textarea id='incomeNote' placeholder='例如：薪水、獎金、其他收入'></textarea><div class='form-actions'><button type='button' class='ghost' onclick='incomeDlg.close()'>取消</button><button>儲存</button></div></form></dialog><dialog id='momDlg'><form onsubmit='saveMom(event)'><h3 id='momTitle'>新增月份紀錄</h3><input type='hidden' id='momId'><label>月份</label><input id='momMonth' type='month' required><label>每月應付金額</label><input id='momBase' type='number' min='0' value='45000' required><label>信貸扣除</label><input id='momLoan' type='number' min='0' value='17165'><label>台新週轉金扣除</label><input id='momTaishin' type='number' min='0' value='0'><label>其他扣除</label><input id='momOther' type='number' min='0' value='0'><label>實際給媽媽</label><input id='momPaid' type='number' min='0' value='0'><label>備註</label><textarea id='momNote'></textarea><div class='form-actions'><button type='button' class='ghost' onclick='momDlg.close()'>取消</button><button>儲存</button></div></form></dialog>
-<dialog id='debtDlg'><form onsubmit='saveDebt(event)'><h3 id='debtTitle'>新增債務</h3><input type='hidden' id='debtId'><label>債務名稱</label><input id='debtName' required placeholder='例如：手機貸'><label>原始欠款</label><input id='debtOriginal' type='number' min='0' required><label>開始日期</label><input id='debtStart' type='date'><label>每月預計還款</label><input id='debtMonthly' type='number' min='0'><label>每月繳款日</label><input id='debtDay' type='number' min='1' max='31'><label>備註</label><textarea id='debtNote'></textarea><div class='form-actions'><button type='button' class='ghost' onclick='debtDlg.close()'>取消</button><button>儲存</button></div></form></dialog>
-<dialog id='payDlg'><form onsubmit='savePayment(event)'><h3>新增還款</h3><input type='hidden' id='payDebtId'><label>還款日期</label><input id='payDate' type='date' required><label>還款金額</label><input id='payAmount' type='number' min='0' required><label>備註</label><input id='payNote'><div class='form-actions'><button type='button' class='ghost' onclick='payDlg.close()'>取消</button><button>儲存</button></div></form></dialog>
-<script>
-const K='my-debt-tracker-v1';let data=JSON.parse(localStorage.getItem(K)||'{"mom":[],"debts":[],"income":[]}');data.income=data.income||[];const $=id=>document.getElementById(id);const money=n=>new Intl.NumberFormat('zh-TW',{style:'currency',currency:'TWD',maximumFractionDigits:0}).format(n||0);const persist=()=>{localStorage.setItem(K,JSON.stringify(data));render()};
-function momCalc(x){let due=Number(x.base)-Number(x.loan)-Number(x.taishin)-Number(x.other);return {due:Math.max(0,due),short:Math.max(0,due-Number(x.paid)),over:Math.max(0,Number(x.paid)-due)}}
-function render(){let nowMonth=new Date().toISOString().slice(0,7);let currentIncome=data.income.filter(x=>x.month===nowMonth).reduce((s,x)=>s+Number(x.amount),0);let currentMom=data.mom.filter(x=>x.month===nowMonth);let currentMomDue=currentMom.reduce((s,x)=>s+momCalc(x).due,0),currentMomPaid=currentMom.reduce((s,x)=>s+Number(x.paid||0),0),currentMomShort=Math.max(0,currentMomDue-currentMomPaid);let currentDebtPaid=data.debts.reduce((s,d)=>s+(d.payments||[]).filter(p=>String(p.date||'').slice(0,7)===nowMonth).reduce((a,p)=>a+Number(p.amount||0),0),0);$('homeMonth').textContent=nowMonth.replace('-',' 年 ')+' 月';$('homeIncome').textContent=money(currentIncome);$('homeAvailable').textContent=money(Math.max(0,currentIncome-currentMomPaid-currentDebtPaid));$('homeMomShort').textContent=money(currentMomShort);$('incomeList').innerHTML=data.income.length?[...data.income].sort((a,b)=>b.month.localeCompare(a.month)).map(x=>`<div class='card'><div class='debt-head'><div><b>${x.month.replace('-',' 年 ')} 月</b><div class='muted'>${x.note?esc(x.note):'每月進帳紀錄'}</div></div><div class='big'>${money(x.amount)}</div></div><div class='actions'><button class='ghost' onclick='editIncome("${x.id}")'>編輯</button><button class='danger' onclick='delIncome("${x.id}")'>刪除</button></div></div>`).join(''):`<div class='card empty'>還沒有進帳紀錄，按「新增進帳」開始</div>`;let running=0;const moms=[...data.mom].sort((a,b)=>a.month.localeCompare(b.month));moms.forEach(x=>{const c=momCalc(x);running=Math.max(0,running+c.short-c.over)});let debtRemaining=data.debts.reduce((s,d)=>s+Math.max(0,Number(d.original)-(d.payments||[]).reduce((a,p)=>a+Number(p.amount),0)),0);$('homeDebt').textContent=money(debtRemaining);
-$('momList').innerHTML=data.mom.length?[...data.mom].sort((a,b)=>b.month.localeCompare(a.month)).map(x=>{const c=momCalc(x);return `<div class='card'><div class='debt-head'><div><b>${x.month.replace('-',' 年 ')} 月</b><div class='muted'>應付 ${money(x.base)}</div></div><div class='big'>${money(c.short)}</div></div><div class='row'><span>信貸</span><span>− ${money(x.loan)}</span></div><div class='row'><span>台新週轉金</span><span>− ${money(x.taishin)}</span></div>${Number(x.other)?`<div class='row'><span>其他扣除</span><span>− ${money(x.other)}</span></div>`:''}<div class='row'><b>扣除後應給</b><b>${money(c.due)}</b></div><div class='row'><span>實際已給</span><span>${money(x.paid)}</span></div>${x.note?`<div class='muted' style='margin-top:8px'>${esc(x.note)}</div>`:''}<div class='actions'><button class='ghost' onclick='editMom("${x.id}")'>編輯</button><button class='danger' onclick='delMom("${x.id}")'>刪除</button></div></div>`}).join(''):`<div class='card empty'>還沒有月份紀錄</div>`;
-$('debtList').innerHTML=data.debts.length?data.debts.map(d=>{let paid=(d.payments||[]).reduce((a,p)=>a+Number(p.amount),0),remain=Math.max(0,Number(d.original)-paid),pct=d.original?Math.min(100,paid/d.original*100):0;return `<div class='card debt'><div class='debt-head'><div><h3>${esc(d.name)}</h3><div class='muted'>原始欠款 ${money(d.original)}</div></div><div><div class='label'>剩餘</div><div class='money'>${money(remain)}</div></div></div><div class='progress'><i style='width:${pct}%'></i></div><div class='muted'>已還 ${money(paid)} · ${pct.toFixed(0)}%</div><div class='actions'><button onclick='openPay("${d.id}")'>＋ 還款</button><button class='ghost' onclick='toggleHistory("${d.id}")'>還款紀錄</button><button class='ghost' onclick='editDebt("${d.id}")'>編輯</button><button class='danger' onclick='delDebt("${d.id}")'>刪除</button></div><div class='history' id='hist-${d.id}' style='display:none'>${(d.payments||[]).slice().sort((a,b)=>b.date.localeCompare(a.date)).map(p=>`<div class='history-item'><div><b>${money(p.amount)}</b><div class='muted'>${p.date}${p.note?' · '+esc(p.note):''}</div></div><button class='danger' onclick='delPayment("${d.id}","${p.id}")'>刪除</button></div>`).join('')||`<div class='muted'>尚無還款紀錄</div>`}</div></div>`}).join(''):`<div class='card empty'>還沒有其他債務，按「新增債務」開始</div>`}
-function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
 
-function openIncome(){['incomeId','incomeNote'].forEach(i=>$(i).value='');$('incomeMonth').value=new Date().toISOString().slice(0,7);$('incomeAmount').value='';$('incomeTitle').textContent='新增進帳';incomeDlg.showModal()}
-function saveIncome(e){e.preventDefault();let id=$('incomeId').value||crypto.randomUUID(),x={id,month:$('incomeMonth').value,amount:+$('incomeAmount').value,note:$('incomeNote').value};let i=data.income.findIndex(v=>v.id===id);i>=0?data.income[i]=x:data.income.push(x);incomeDlg.close();persist()}
-function editIncome(id){let x=data.income.find(v=>v.id===id);$('incomeId').value=x.id;$('incomeMonth').value=x.month;$('incomeAmount').value=x.amount;$('incomeNote').value=x.note||'';$('incomeTitle').textContent='編輯進帳';incomeDlg.showModal()}
-function delIncome(id){if(confirm('確定刪除這筆進帳紀錄？')){data.income=data.income.filter(x=>x.id!==id);persist()}}
-function openMom(){['momId','momNote'].forEach(i=>$(i).value='');$('momMonth').value=new Date().toISOString().slice(0,7);$('momBase').value=45000;$('momLoan').value=17165;$('momTaishin').value=0;$('momOther').value=0;$('momPaid').value=0;$('momTitle').textContent='新增月份紀錄';momDlg.showModal()}
-function saveMom(e){e.preventDefault();let id=$('momId').value||crypto.randomUUID(),x={id,month:$('momMonth').value,base:+$('momBase').value,loan:+$('momLoan').value,taishin:+$('momTaishin').value,other:+$('momOther').value,paid:+$('momPaid').value,note:$('momNote').value};let i=data.mom.findIndex(v=>v.id===id);i>=0?data.mom[i]=x:data.mom.push(x);momDlg.close();persist()}
-function editMom(id){let x=data.mom.find(v=>v.id===id);Object.entries({momId:x.id,momMonth:x.month,momBase:x.base,momLoan:x.loan,momTaishin:x.taishin,momOther:x.other,momPaid:x.paid,momNote:x.note||''}).forEach(([k,v])=>$(k).value=v);$('momTitle').textContent='編輯月份紀錄';momDlg.showModal()}function delMom(id){if(confirm('確定刪除這個月份？')){data.mom=data.mom.filter(x=>x.id!==id);persist()}}
-function openDebt(){['debtId','debtName','debtOriginal','debtStart','debtMonthly','debtDay','debtNote'].forEach(i=>$(i).value='');$('debtTitle').textContent='新增債務';debtDlg.showModal()}function saveDebt(e){e.preventDefault();let id=$('debtId').value||crypto.randomUUID(),old=data.debts.find(x=>x.id===id),d={id,name:$('debtName').value,original:+$('debtOriginal').value,start:$('debtStart').value,monthly:+$('debtMonthly').value||0,day:+$('debtDay').value||0,note:$('debtNote').value,payments:old?.payments||[]};let i=data.debts.findIndex(x=>x.id===id);i>=0?data.debts[i]=d:data.debts.push(d);debtDlg.close();persist()}function editDebt(id){let d=data.debts.find(x=>x.id===id);Object.entries({debtId:d.id,debtName:d.name,debtOriginal:d.original,debtStart:d.start||'',debtMonthly:d.monthly||'',debtDay:d.day||'',debtNote:d.note||''}).forEach(([k,v])=>$(k).value=v);$('debtTitle').textContent='編輯債務';debtDlg.showModal()}function delDebt(id){if(confirm('確定刪除此債務與所有還款紀錄？')){data.debts=data.debts.filter(x=>x.id!==id);persist()}}
-function openPay(id){$('payDebtId').value=id;$('payDate').value=new Date().toISOString().slice(0,10);$('payAmount').value='';$('payNote').value='';payDlg.showModal()}function savePayment(e){e.preventDefault();let d=data.debts.find(x=>x.id===$('payDebtId').value);d.payments.push({id:crypto.randomUUID(),date:$('payDate').value,amount:+$('payAmount').value,note:$('payNote').value});payDlg.close();persist()}function delPayment(did,pid){if(confirm('刪除這筆還款紀錄？')){let d=data.debts.find(x=>x.id===did);d.payments=d.payments.filter(p=>p.id!==pid);persist()}}function toggleHistory(id){let e=$('hist-'+id);e.style.display=e.style.display==='none'?'block':'none'}
+<div id="memoryFields" hidden>
+  <div class="fieldLabel">回憶日期</div>
+  <input id="memoryDate" type="date">
+  <input id="memoryTitle" placeholder="這段回憶的標題">
+  <input id="memoryPlace" placeholder="地點（可不填）">
+  <label class="fieldLabel">回憶照片（可多選）</label>
+  <input id="memoryPhotos" type="file" accept="image/*" multiple>
+  <div id="memoryPhotoPreview" class="preview"></div>
+  <div class="moodLabel">今天的心情</div>
+  <div id="moodPicker" class="moodPicker">
+    <button type="button" data-mood="開心">🥰<span>開心</span></button>
+    <button type="button" data-mood="幸福">💗<span>幸福</span></button>
+    <button type="button" data-mood="感動">🥹<span>感動</span></button>
+    <button type="button" data-mood="平靜">😌<span>平靜</span></button>
+    <button type="button" data-mood="期待">✨<span>期待</span></button>
+    <button type="button" data-mood="難過">🥺<span>難過</span></button>
+  </div>
+  <input id="memoryMood" type="hidden">
+  <textarea id="memoryStory" placeholder="寫下這段回憶、發生的事情、想記住的感受…"></textarea>
+</div>
+</div><div id="spendFields" hidden><input id="spendTitle" placeholder="花了什麼"><div class="muted" style="margin-top:8px">消費日期</div><input id="spendDate" type="date"><input id="spendAmount" type="number" inputmode="decimal" placeholder="金額"><select id="spendCat"><option>美容</option><option>餐飲</option><option>購物</option><option>交通</option><option>其他</option></select></div><div id="todoFields" hidden><input id="todoText" placeholder="待辦事項"><input id="todoDate" type="date"></div><button id="saveBtn" class="primary">儲存 ♡</button></div></div>
+<div id="settingsModal" class="modal"><div class="sheet"><button class="gear close" data-close="settingsModal">×</button><h2>設定</h2><div class="muted" style="margin:-6px 0 14px">My Life V7 MEMORY FORM</div>
 
+<div class="settingSection" id="homeGreetingSettings" style="margin:14px 0 20px;padding:16px;border:1px solid #dfe4f2;border-radius:18px;background:rgba(255,255,255,.72)">
+  <div style="font-size:16px;font-weight:800;color:#2f3e61;margin-bottom:6px">首頁問候語</div>
+  <div style="font-size:12px;color:#8993ad;margin-bottom:10px">修改首頁「Good Day, 美女 ♡」這一行</div>
+  <input id="homeGreetingInput2" type="text" maxlength="40"
+    placeholder="Good Day, 美女 ♡"
+    style="display:block;width:100%;box-sizing:border-box;padding:12px 13px;border:1px solid #dfe4f2;border-radius:13px;background:#fff;color:#2f3e61;font-size:16px">
+  <button id="saveHomeGreeting2" type="button"
+    style="display:block;width:100%;margin-top:10px;padding:12px;border:0;border-radius:13px;background:linear-gradient(100deg,#efd7eb,#d8d0f6,#c9dcfb);color:#334160;font-weight:800;font-size:15px">
+    儲存問候語 ♡
+  </button>
+</div>
 
+<h3 style="margin:8px 0 4px">卡片封面管理</h3>
+<p class="muted">點「選照片」即可從手機相簿更換封面。</p>
+<div id="coverSettings" class="coverSettings"></div><button id="backupBtn" class="primary">匯出備份</button><label class="muted">還原備份</label><input id="restoreFile" type="file" accept=".json"><button id="restoreBtn" class="primary">還原備份</button></div></div>
+<div id="memoryDetail" class="detailModal">
+  <div class="detailWrap">
+    <div class="detailTop">
+      <button id="memoryBack">‹</button>
+      <div class="detailTitle">回憶詳情</div>
+      <button id="memoryClose">×</button>
+    </div>
+    <img id="detailMainPhoto" class="detailMainPhoto" alt="">
+    <div id="detailThumbs" class="detailThumbs"></div>
+    <div class="detailContent">
+      <h1 id="detailTitle"></h1>
+      <div id="detailInfo" class="detailInfo"></div>
+      <div id="detailStory" class="detailStory"></div><button id="detailEdit" class="detailEdit">編輯這筆回憶</button>
+    </div>
+  </div>
+</div>
+<div id="photoViewer" class="photoViewer"><button id="viewerClose" class="viewerClose">×</button><div id="viewerCount" class="viewerCount"></div><button id="viewerPrev" class="viewerNav viewerPrev">‹</button><img id="viewerPhoto" class="viewerPhoto" alt=""><button id="viewerNext" class="viewerNav viewerNext">›</button></div><script>
+function setMemoryMood(v){
+  if(el('memoryMood'))el('memoryMood').value=v||'';
+  document.querySelectorAll('#moodPicker [data-mood]').forEach(b=>b.classList.toggle('selected',b.dataset.mood===(v||'')));
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('#moodPicker [data-mood]');
+  if(b){e.preventDefault();setMemoryMood(b.dataset.mood)}
+});
 
-function showPage(name){
-  document.querySelectorAll('.app-page').forEach(p=>p.classList.toggle('active',p.id==='page-'+name));
-  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.page===name));
-  window.scrollTo({top:0,behavior:'smooth'});
+const GREETING_KEY='mylife_home_greeting';
+function getGreeting(){return localStorage.getItem(GREETING_KEY)||'Good Day, 美女 ♡'}
+function renderGreeting(){
+ const g=getGreeting();
+ document.querySelectorAll('.hello h2,.helloTitle,#greetingText').forEach(x=>x.textContent=g);
 }
 
-function toggleSection(sectionId,arrowId){
-  const section=$(sectionId), arrow=$(arrowId);
-  const willClose=!section.classList.contains('closed');
-  section.classList.toggle('closed',willClose);
-  arrow.classList.toggle('open',!willClose);
+let __pageScrollY=0;
+function lockPage(){
+  if(document.body.classList.contains('modalLocked'))return;
+  __pageScrollY=window.scrollY||0;
+  document.body.style.top=(-__pageScrollY)+'px';
+  document.body.classList.add('modalLocked');
 }
-function restoreSections(){
-  ['incomeSection','momSection','debtSection','backupSection'].forEach(id=>{
-    $(id)?.classList.add('closed');
-    $(id.replace('Section','Arrow'))?.classList.remove('open');
+function unlockPage(){
+  if(!document.body.classList.contains('modalLocked'))return;
+  document.body.classList.remove('modalLocked');
+  document.body.style.top='';
+  window.scrollTo(0,__pageScrollY);
+}
+
+let editingRecordId=null,editingSpendId=null,editingTodoId=null;
+(function(){'use strict';
+const el=id=>document.getElementById(id), TYPES=[['FAVORITE','收藏・想買・想去','♡'],['MEMORY','生活紀錄・旅行・日常','✈️'],['DAILY','待辦・行程・習慣','✓'],['BEAUTY','美甲・美容・變美紀錄','✦'],['SPENDING','消費紀錄・理財管理','$'],['HEALTH','健康・飲食・運動','♡']];
+let active=2,mode='record',coverTarget='BEAUTY',data={records:[],spends:[],todos:[],covers:{}};
+try{const old=JSON.parse(localStorage.getItem('mylife-v5')||'null');if(old)data=Object.assign(data,old)}catch(e){}
+const save=()=>{
+  try{
+    localStorage.setItem('mylife-v5',JSON.stringify(data));
+    render();summary();
+    if(window.showSaveSuccess)window.showSaveSuccess('儲存成功');
+    return true;
+  }catch(err){
+    console.error('My Life save failed:',err);
+    alert('儲存空間不足，這次沒有成功儲存。請少選幾張照片或刪除一些舊照片後再試。');
+    return false;
+  }
+};
+const date=()=>new Date().toISOString().slice(0,10);
+function compress(file,max=1400,q=.78){return new Promise((resolve,reject)=>{const fr=new FileReader();fr.onload=()=>{const im=new Image();im.onload=()=>{const sc=Math.min(1,max/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*sc);c.height=Math.round(im.height*sc);c.getContext('2d').drawImage(im,0,0,c.width,c.height);resolve(c.toDataURL('image/jpeg',q))};im.onerror=reject;im.src=fr.result};fr.onerror=reject;fr.readAsDataURL(file)})}
+function imageFor(type){return data.covers[type]||''}
+function render(){
+  const st=el('stage');st.innerHTML='';
+  TYPES.forEach((c,i)=>{
+    const d=i-active,cl=d===0?'a':d===-1?'l':d===1?'r':d===-2?'farL':d===2?'farR':'off';
+    const card=document.createElement('article'),im=imageFor(c[0]);
+    card.className='card '+cl;card.dataset.index=i;card.dataset.type=c[0];
+    card.innerHTML=(im?'<img src="'+im+'" alt="" decoding="async" '+(Math.abs(i-active)<=1?'':'loading="lazy"')+'>':'<div class="fallback">'+c[2]+'</div>')+
+      '<div class="shade"></div><div class="info"><b>'+c[0]+'</b><p>'+c[1]+'</p></div>';
+    st.appendChild(card)
   });
+  el('dots').innerHTML=TYPES.map((_,i)=>'<i class="dot '+(i===active?'on':'')+'"></i>').join('');
+  el('bg').style.backgroundImage='radial-gradient(circle at 8% 12%,rgba(223,214,250,.72) 0 12%,transparent 31%),radial-gradient(circle at 91% 15%,rgba(207,229,255,.78) 0 13%,transparent 33%),radial-gradient(circle at 88% 57%,rgba(247,216,230,.48) 0 10%,transparent 30%),linear-gradient(145deg,#faf8ff 0%,#eef5ff 42%,#f8f1fb 72%,#f8fbff 100%)'
+}
+let sx=0,lastX=0,startT=0,dragging=false,pointerId=null,startCard=null;
+el('stage').addEventListener('pointerdown',e=>{
+  const card=e.target.closest('.card');if(!card)return;
+  startCard=card;pointerId=e.pointerId;sx=lastX=e.clientX;startT=Date.now();dragging=true;
+  try{el('stage').setPointerCapture(pointerId)}catch(_){}
+  document.querySelectorAll('.card').forEach(c=>c.style.transition='none')
+});
+el('stage').addEventListener('pointermove',e=>{
+  if(!dragging||e.pointerId!==pointerId)return;
+  lastX=e.clientX;const dx=lastX-sx,cur=el('stage').querySelector('.card.a');
+  if(cur&&Math.abs(dx)>3)cur.style.transform=`translate3d(${dx*.72}px,${Math.min(5,Math.abs(dx)*.018)}px,82px) rotateY(${-dx*.04}deg) scale(.998)`
+});
+function finishSwipe(e){
+  if(!dragging||e.pointerId!==pointerId)return;
+  dragging=false;
+  const dx=e.clientX-sx,dt=Math.max(1,Date.now()-startT),v=Math.abs(dx)/dt;
+  document.querySelectorAll('.card').forEach(c=>c.style.transition='transform .22s cubic-bezier(.2,.8,.2,1),opacity .18s');
+  if(Math.abs(dx)>24||v>.34){
+    active=Math.max(0,Math.min(TYPES.length-1,active+(dx<0?1:-1)));render();return
+  }
+  const i=startCard?Number(startCard.dataset.index):active;
+  if(i!==active){active=i;render();return}
+  openCategory(TYPES[active][0])
+}
+el('stage').addEventListener('pointerup',finishSwipe);
+el('stage').addEventListener('pointercancel',e=>{if(!dragging)return;dragging=false;render()});
+el('coverPicker').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;data.covers[coverTarget]=await compress(f,760,.68);e.target.value='';save();if(el('settingsModal').classList.contains('on'))renderCoverSettings()});
+document.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',()=>openAdd(b.dataset.add)));
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>{
+  el(b.dataset.close).classList.remove('on');
+  unlockPage();
+}));function renderCoverSettings(){el('coverSettings').innerHTML=TYPES.map(c=>{const im=imageFor(c[0]);return '<div class="coverRow">'+(im?'<img class="coverMini" src="'+im+'" decoding="async">':'<div class="coverMini">'+c[2]+'</div>')+'<div class="coverName"><b>'+c[0]+'</b><span>'+c[1]+'</span></div><button class="coverChoose" data-setting-cover="'+c[0]+'">選照片</button></div>'}).join('')}
+if(el('settingsBtn'))el('settingsBtn').onclick=()=>{if(el('settingGreeting'))el('settingGreeting').value=getGreeting();renderCoverSettings();el('settingsModal').classList.add('on');lockPage()};
+el('coverSettings').onclick=e=>{const b=e.target.closest('[data-setting-cover]');if(!b)return;coverTarget=b.dataset.settingCover;el('coverPicker').click()};el('directMemoryBtn').onclick=()=>{el('recordCat').value='MEMORY';openAdd('record');updateMemoryFields()};el('memoryAddBtn').onclick=()=>{el('recordCat').value='MEMORY';openAdd('record');updateMemoryFields()};el('fab').onclick=()=>{const t=el('fab').dataset.type;if(t==='SPENDING')openAdd('spend');else if(t==='DAILY')openAdd('todo');else{el('recordCat').value=t||TYPES[active][0];openAdd('record');updateMemoryFields()}};
+function updateMemoryFields(){
+ const cat=el('recordCat').value,isMem=cat==='MEMORY';
+ el('normalRecordFields').hidden=isMem;
+ el('memoryFields').hidden=!isMem;
+ if(isMem){
+   if(!el('memoryDate').value)el('memoryDate').value=date();
+ }else{
+   if(!el('recordDate').value)el('recordDate').value=date();
+   el('recordPrice').style.display=(cat==='BEAUTY')?'block':'none';
+   el('recordPlace').placeholder=(cat==='BEAUTY')?'店家 / 地點':'地點（可不填）';
+ }
+}el('recordCat').addEventListener('change',updateMemoryFields);function openAdd(m){mode=m;el('addTitle').textContent=m==='record'?'新增生活紀錄':m==='spend'?'新增消費':'新增待辦';el('recordFields').hidden=m!=='record';el('spendFields').hidden=m!=='spend';el('todoFields').hidden=m!=='todo';el('addModal').classList.add('on');lockPage();if(m==='record')updateMemoryFields()}
+el('recordPhotos').onchange=e=>{el('photoPreview').innerHTML='';el('memoryPhotoPreview').innerHTML='';[...e.target.files].forEach(f=>{const im=new Image();im.src=URL.createObjectURL(f);el('photoPreview').appendChild(im)})};
+el('memoryPhotos').onchange=e=>{el('memoryPhotoPreview').innerHTML='';[...e.target.files].forEach(f=>{const im=new Image();im.src=URL.createObjectURL(f);el('memoryPhotoPreview').appendChild(im)})};
+
+el('saveBtn').onclick=async()=>{
+  const btn=el('saveBtn');
+  if(btn.dataset.saving==='1')return;
+  btn.dataset.saving='1';
+  const oldText=btn.textContent;
+  btn.textContent='儲存中…';
+  btn.disabled=true;
+
+  try{
+    if(mode==='record'){
+      const rc=el('recordCat').value,isMem=rc==='MEMORY';
+      const t=(isMem?el('memoryTitle').value:el('recordTitle').value).trim();
+      if(!t){alert('請輸入標題');return}
+
+      const fileInput=isMem?el('memoryPhotos'):el('recordPhotos');
+      const files=[...fileInput.files];
+      const photos=[];
+
+      /* 一張一張處理：單張照片失敗不會讓整個儲存按鈕失效 */
+      for(const f of files){
+        try{
+          photos.push(await compress(f,isMem?640:1000,isMem?.48:.70));
+        }catch(err){
+          console.error('photo compress failed',err);
+          try{
+            photos.push(await new Promise((resolve,reject)=>{
+              const fr=new FileReader();
+              fr.onload=()=>resolve(fr.result);
+              fr.onerror=reject;
+              fr.readAsDataURL(f);
+            }));
+          }catch(e){
+            console.error('photo fallback failed',e);
+          }
+        }
+      }
+
+      const recordObj={
+        id:editingRecordId||Date.now(),cat:rc,title:t,
+        place:(isMem?el('memoryPlace').value:el('recordPlace').value).trim(),
+        price:isMem?0:Number(el('recordPrice').value||0),
+        note:isMem?el('memoryStory').value.trim():el('recordNote').value.trim(),
+        mood:isMem?el('memoryMood').value:'',
+        date:isMem?(el('memoryDate').value||date()):(el('recordDate').value||date()),
+        photos
+      };
+
+      if(editingRecordId){
+        const old=data.records.find(x=>String(x.id)===String(editingRecordId));
+        if(old&&(!recordObj.photos||!recordObj.photos.length))recordObj.photos=old.photos||[];
+        const i=data.records.findIndex(x=>String(x.id)===String(editingRecordId));
+        if(i>=0)data.records[i]=recordObj;
+      }else{
+        data.records.push(recordObj);
+      }
+
+      /* 先真正寫入成功，再清空表單與關閉視窗 */
+      let ok=false;
+      try{
+        localStorage.setItem('mylife-v5',JSON.stringify(data));
+        ok=true;
+      }catch(firstErr){
+        console.warn('first save failed, retrying smaller MEMORY photos',firstErr);
+
+        /* iPhone localStorage 接近上限時，自動把這次新增照片再縮小後重試 */
+        if(isMem && files.length){
+          const smaller=[];
+          for(const f of files){
+            try{smaller.push(await compress(f,420,.34))}catch(e){}
+          }
+          if(smaller.length)recordObj.photos=smaller;
+          try{
+            localStorage.setItem('mylife-v5',JSON.stringify(data));
+            ok=true;
+          }catch(secondErr){
+            console.error('second save failed',secondErr);
+          }
+        }
+      }
+
+      if(!ok){
+        /* 新增失敗時把尚未成功的資料從記憶體撤回，避免假成功 */
+        if(!editingRecordId){
+          const i=data.records.findIndex(x=>String(x.id)===String(recordObj.id));
+          if(i>=0)data.records.splice(i,1);
+        }
+        alert('這次仍然沒有寫入成功。瀏覽器儲存空間可能已滿；資料沒有被清掉，請先保留這個畫面。');
+        return;
+      }
+
+      editingRecordId=null;
+      setMemoryMood('');
+      ['recordTitle','recordPlace','recordPrice','recordNote','memoryMood','memoryStory','memoryDate','recordDate','memoryTitle','memoryPlace'].forEach(x=>el(x).value='');
+      el('recordPhotos').value='';
+      el('memoryPhotos').value='';
+      el('photoPreview').innerHTML='';
+      el('memoryPhotoPreview').innerHTML='';
+      render();summary();
+      if(window.showSaveSuccess)window.showSaveSuccess('儲存成功');
+
+    }else if(mode==='spend'){
+      const t=el('spendTitle').value.trim(),a=Number(el('spendAmount').value);
+      if(!t||!a){alert('請輸入消費內容與金額');return}
+      const spendObj={id:editingSpendId||Date.now(),title:t,amount:a,cat:el('spendCat').value,date:el('spendDate').value||date()};
+      if(editingSpendId){
+        const i=data.spends.findIndex(x=>String(x.id)===String(editingSpendId));if(i>=0)data.spends[i]=spendObj
+      }else data.spends.push(spendObj);
+      editingSpendId=null;
+      el('spendTitle').value=el('spendAmount').value='';
+      if(!save())return;
+    }else{
+      const t=el('todoText').value.trim();
+      if(!t){alert('請輸入待辦');return}
+      data.todos.push({text:t,date:el('todoDate').value||date(),done:false});
+      el('todoText').value='';
+      if(!save())return;
+    }
+
+    el('addModal').classList.remove('on');
+    unlockPage();
+    const ft=el('fab').dataset.type;
+    if(el('fab').classList.contains('on')){
+      if(ft==='SPENDING')showSpending();
+      else if(ft==='DAILY')showTodos();
+      else showType(ft);
+    }
+  }catch(err){
+    console.error('SAVE FATAL',err);
+    alert('儲存時發生錯誤，資料沒有被清掉。請重新整理後再試一次。');
+  }finally{
+    btn.dataset.saving='0';
+    btn.disabled=false;
+    btn.textContent=oldText;
+  }
+};
+function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function openCategory(t){document.querySelectorAll('[data-nav]').forEach(x=>x.classList.remove('on'));const nb=document.querySelector(`[data-nav="${t}"]`);if(nb)nb.classList.add('on');if(t==='SPENDING')showSpending();else if(t==='DAILY')showTodos();else showType(t)}
+function showType(t){
+  el('memoryAddBtn').hidden=t!=='MEMORY';
+  el('fab').classList.add('on');
+  el('fab').dataset.type=t;
+  el('panel').classList.add('on');
+  el('panelTitle').textContent=t==='MEMORY'?'我的回憶':t;
+  if(t==='MEMORY'){showMemoryTimeline();return}
+  if(t==='BEAUTY'){showBeautyGallery();return}
+  showCategoryCards(t);
+  window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})
 }
 
-function exportBackup(){
-  const payload={app:'my-debt-tracker',version:1,exportedAt:new Date().toISOString(),data};
-  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
-  const a=document.createElement('a');
-  const stamp=new Date().toISOString().slice(0,10).replaceAll('-','');
-  a.href=URL.createObjectURL(blob);a.download=`還款紀錄備份-${stamp}.json`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href);
-  $('backupStatus').textContent='已匯出備份。請把檔案保存到安全的位置。';
+
+
+function startEditRecord(id){
+ const r=data.records.find(x=>String(x.id)===String(id));if(!r)return;
+ editingRecordId=r.id;el('recordCat').value=r.cat||'DAILY';updateMemoryFields();
+ if(r.cat==='MEMORY'){
+   el('memoryTitle').value=r.title||'';el('memoryPlace').value=r.place||'';el('memoryDate').value=r.date||date();setMemoryMood(r.mood||'');el('memoryStory').value=r.note||''
+ }else{
+   el('recordTitle').value=r.title||'';el('recordPlace').value=r.place||'';el('recordPrice').value=r.price||'';el('recordNote').value=r.note||'';el('recordDate').value=r.date||date()
+ }
+ mode='record';el('addTitle').textContent='編輯生活紀錄';el('recordFields').hidden=false;el('spendFields').hidden=true;el('todoFields').hidden=true;el('addModal').classList.add('on');lockPage()
 }
-function importBackup(e){
-  const file=e.target.files?.[0]; if(!file)return;
-  const reader=new FileReader();
-  reader.onload=()=>{try{
-    const parsed=JSON.parse(reader.result); const incoming=parsed.data||parsed;
-    if(!incoming || !Array.isArray(incoming.mom) || !Array.isArray(incoming.debts)) throw new Error('invalid');
-    incoming.income=Array.isArray(incoming.income)?incoming.income:[];
-    if(!confirm('匯入備份會取代目前這個瀏覽器裡的資料。確定要繼續嗎？')){e.target.value='';return;}
-    data=incoming;localStorage.setItem(K,JSON.stringify(data));render();
-    $('backupStatus').textContent=`已成功還原：${file.name}`;
-  }catch(err){alert('這個檔案不是有效的還款紀錄備份，請確認檔案後再試一次。')}finally{e.target.value=''}};
-  reader.readAsText(file);
+function showCategoryCards(t){
+ const a=data.records.filter(x=>x.cat===t).slice().sort((x,y)=>(y.date||'').localeCompare(x.date||''));
+ if(!a.length){el('list').innerHTML='<div class="categoryEmpty">還沒有'+esc(t)+'紀錄 ♡<br><span>按右下角 ＋ 新增</span></div>';return}
+ const icon={DAILY:'✦',HEALTH:'♡',FAVORITE:'♥'}[t]||'♡';
+ el('list').innerHTML='<div class="categoryGrid">'+a.map(r=>{
+   const ph=r.photos&&r.photos[0];
+   return '<article class="categoryCard" data-edit-card="'+r.id+'">'+
+   (ph?'<button class="categoryPhotoBtn" data-record-photo="'+r.id+'"><img src="'+ph+'" loading="lazy" decoding="async"></button>':'<div class="categoryNoPhoto">'+icon+'</div>')+
+   '<div class="categoryText"><div class="categoryDate">'+esc(r.date||'')+'</div><h3>'+esc(r.title||t)+'</h3>'+
+   (r.place?'<div class="categoryMeta">📍 '+esc(r.place)+'</div>':'')+
+   (r.price?'<div class="categoryPrice">$'+Number(r.price).toLocaleString()+'</div>':'')+
+   (r.note?'<p>'+esc(r.note)+'</p>':'')+
+   '<div class="recordActions"><button data-edit-record="'+r.id+'">編輯</button><button class="categoryDelete" data-del-record="'+r.id+'">刪除</button></div></div></article>'
+ }).join('')+'</div>';
 }
-render();showPage('home');
-</script></body></html>
+function showBeautyGallery(){
+ const a=data.records.filter(x=>x.cat==='BEAUTY').slice().sort((x,y)=>(y.date||'').localeCompare(x.date||''));
+ if(!a.length){el('list').innerHTML='<div class="beautyEmpty">還沒有美甲紀錄 ♡<br><span>按右下角 ＋ 新增第一款</span></div>';return}
+ el('list').innerHTML='<div class="beautyGrid">'+a.map(r=>{const ph=r.photos&&r.photos[0];return '<article class="beautyCard" data-edit-card="'+r.id+'">'+
+ (ph?'<button class="beautyPhotoBtn" data-beauty-photo="'+r.id+'"><img src="'+ph+'" loading="lazy" decoding="async"></button>':'<div class="beautyNoPhoto">♡</div>')+
+ '<div class="beautyText"><div class="beautyDate">'+esc(r.date||'')+'</div><h3>'+esc(r.title||'美甲紀錄')+'</h3>'+
+ (r.place?'<div class="beautySub">📍 '+esc(r.place)+'</div>':'')+(r.price?'<div class="beautyPrice">$'+Number(r.price).toLocaleString()+'</div>':'')+
+ (r.note?'<p>'+esc(r.note)+'</p>':'')+'<div class="recordActions"><button data-edit-record="'+r.id+'">編輯</button><button class="beautyDelete" data-del-record="'+r.id+'">刪除</button></div></div></article>'}).join('')+'</div>';
+}
+function openPhotoViewer(id){
+ const r=data.records.find(x=>String(x.id)===String(id));if(!r||!r.photos||!r.photos.length)return;
+ let i=0;const main=el('viewerPhoto'),count=el('viewerCount');
+ const paint=()=>{main.src=r.photos[i];count.textContent=(i+1)+' / '+r.photos.length};
+ paint();el('photoViewer').classList.add('on');document.body.style.overflow='hidden';
+ el('viewerPrev').onclick=()=>{i=(i-1+r.photos.length)%r.photos.length;paint()};
+ el('viewerNext').onclick=()=>{i=(i+1)%r.photos.length;paint()};
+}
+function showMemoryTimeline(){
+  const memories=data.records.filter(x=>x.cat==='MEMORY').slice().sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+  if(!memories.length){
+    el('list').innerHTML='<div class="memoryEmpty">還沒有回憶 ♡<br><br>按上方「＋ 新增回憶 ♡」開始收藏你的日子。</div>';
+    return;
+  }
+  const groups={};
+  memories.forEach(r=>{const d=(r.date||date()).split('-'),y=d[0],m=d[1]||'01';(groups[y]??={});(groups[y][m]??=[]).push(r)});
+  let html='<div class="memoryTimeline">';
+  Object.keys(groups).sort((a,b)=>b.localeCompare(a)).forEach(y=>{
+    html+='<div class="memoryYear">'+y+' 年</div>';
+    Object.keys(groups[y]).sort((a,b)=>b.localeCompare(a)).forEach(m=>{
+      html+='<div class="memoryMonth"><div class="monthRail">'+Number(m)+'<br><span style="font-size:12px">月</span></div><div>';
+      groups[y][m].forEach(r=>{
+        const photo=r.photos&&r.photos[0], count=r.photos?r.photos.length:0;
+        html+='<article class="memoryPost" data-memory-card="'+r.id+'">'+
+          '<div class="memoryHero">'+(photo?'<img src="'+photo+'" alt="" loading="lazy" decoding="async">':'<div class="fallback" style="height:100%">♡</div>')+(count?'<span class="memoryCount">'+count+' 張</span>':'')+'</div>'+
+          '<div class="memoryBody"><h3>'+esc(r.title)+' ♡</h3>'+
+          '<div class="memoryMeta">📅 '+esc(r.date)+(r.place?'　📍 '+esc(r.place):'')+'</div>'+
+          (r.mood?'<div class="memoryMood">☺ '+esc(r.mood)+'</div>':'')+
+          '<div class="memoryStory">'+esc(r.note||'')+'</div>'+
+          '<button class="memoryOpen" data-memory-open="'+r.id+'">查看這段回憶</button><div class="recordActions"><button data-edit-record="'+r.id+'">編輯</button><button data-del-record="'+r.id+'">刪除</button></div></div></article>';
+      });
+      html+='</div></div>';
+    });
+  });
+  html+='</div>';
+  el('list').innerHTML=html;
+}
+function openMemoryDetail(id){
+  el('memoryDetail').dataset.recordId=id;
+  const r=data.records.find(x=>String(x.id)===String(id));if(!r)return;
+  const photos=r.photos||[];
+  el('detailTitle').textContent=r.title||'我的回憶';
+  el('detailInfo').innerHTML='📅 '+esc(r.date||'')+(r.place?'<br>📍 '+esc(r.place):'')+(r.mood?'<br>☺ 心情：'+esc(r.mood):'');
+  el('detailStory').textContent=r.note||'';
+  const main=el('detailMainPhoto');
+  if(photos[0]){main.src=photos[0];main.style.display='block'}else{main.removeAttribute('src');main.style.display='none'}
+  el('detailThumbs').innerHTML=photos.map((x,i)=>'<img src="'+x+'" data-detail-photo="'+i+'" class="'+(i===0?'on':'')+'">').join('');
+  el('memoryDetail').classList.add('on');
+  document.body.style.overflow='hidden';
+}
+
+function startEditSpend(id){
+ const x=data.spends.find(v=>String(v.id)===String(id));if(!x)return;
+ editingSpendId=x.id;el('spendTitle').value=x.title||'';el('spendAmount').value=x.amount||'';
+ if(el('spendCat'))el('spendCat').value=x.cat||'';if(el('spendDate'))el('spendDate').value=x.date||date();
+ el('spendModal').classList.add('on')
+}
+function showSpending(){el('memoryAddBtn').hidden=true;el('fab').classList.add('on');el('fab').dataset.type='SPENDING';el('panel').classList.add('on');el('panelTitle').textContent='消費紀錄';const total=data.spends.reduce((a,x)=>a+Number(x.amount),0);el('list').innerHTML='<h3>累計 $'+total.toLocaleString()+'</h3>'+data.spends.slice().reverse().map(x=>'<div class="item"><b>'+esc(x.title)+'</b>　$'+Number(x.amount).toLocaleString()+'<div class="muted">'+x.date+'・'+x.cat+'</div><button class="action" data-del-spend="'+(x.id||'')+'" style="margin-top:8px;padding:7px 10px">刪除</button></div>').join('')}
+
+function startEditTodo(id){
+ const x=data.todos.find(v=>String(v.id)===String(id));if(!x)return;
+ editingTodoId=x.id;el('todoTitle').value=x.title||'';if(el('todoNote'))el('todoNote').value=x.note||'';if(el('todoDate'))el('todoDate').value=x.date||date();
+ el('todoModal').classList.add('on')
+}
+function showTodos(){el('memoryAddBtn').hidden=true;el('fab').classList.add('on');el('fab').dataset.type='DAILY';el('panel').classList.add('on');el('panelTitle').textContent='待辦事項';el('list').innerHTML=data.todos.map((x,i)=>'<div class="item"><span data-todo="'+i+'">'+(x.done?'☑':'☐')+' <b style="'+(x.done?'text-decoration:line-through;opacity:.5':'')+'">'+esc(x.text)+'</b></span><div class="muted">'+x.date+'</div><button class="action" data-del-todo="'+i+'" style="margin-top:8px;padding:7px 10px">刪除</button></div>').join('')||'<p class="muted">沒有待辦 ♡</p>'}
+el('list').onclick=e=>{const mc=e.target.closest('[data-memory-card]');if(mc&&!e.target.closest('button')){openMemoryDetail(mc.dataset.memoryCard);return}const ec=e.target.closest('[data-edit-card]');if(ec&&!e.target.closest('[data-record-photo],[data-beauty-photo],button')){startEditRecord(ec.dataset.editCard);return}const er=e.target.closest('[data-edit-record]');if(er){startEditRecord(er.dataset.editRecord);return}const rp=e.target.closest('[data-record-photo]');if(rp){openPhotoViewer(rp.dataset.recordPhoto);return}const bp=e.target.closest('[data-beauty-photo]');if(bp){openPhotoViewer(bp.dataset.beautyPhoto);return}let mo=e.target.closest('[data-memory-open]');if(mo){openMemoryDetail(mo.dataset.memoryOpen);return}let x=e.target.closest('[data-todo]');if(x){const i=Number(x.dataset.todo);data.todos[i].done=!data.todos[i].done;save();showTodos();return}x=e.target.closest('[data-del-record]');if(x&&confirm('要刪除這筆紀錄嗎？')){data.records=data.records.filter(r=>String(r.id)!==x.dataset.delRecord);save();showType(el('fab').dataset.type);return}x=e.target.closest('[data-del-spend]');if(x&&confirm('要刪除這筆消費嗎？')){const id=x.dataset.delSpend;data.spends=id?data.spends.filter(r=>String(r.id)!==id):data.spends;save();showSpending();return}x=e.target.closest('[data-del-todo]');if(x&&confirm('要刪除這筆待辦嗎？')){data.todos.splice(Number(x.dataset.delTodo),1);save();showTodos()}};
+document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-nav]').forEach(x=>x.classList.remove('on'));b.classList.add('on');const n=b.dataset.nav;if(n==='home'){el('panel').classList.remove('on');el('fab').classList.remove('on');scrollTo({top:0,behavior:'smooth'})}else openCategory(n)});
+function summary(){let u=0,total=0,m=date().slice(0,7);for(const x of data.todos){if(!x.done)u++}for(const x of data.spends){if(x.date&&x.date.startsWith(m))total+=Number(x.amount||0)}el('summary').textContent='待辦 '+u+' 件・本月消費 $'+total.toLocaleString()}
+el('backupBtn').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(data)],{type:'application/json'}));a.download='my-life-backup.json';a.click()};
+el('restoreBtn').onclick=()=>{const f=el('restoreFile').files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{data=JSON.parse(r.result);save();alert('還原完成 ♡')}catch(e){alert('備份檔格式錯誤')}};r.readAsText(f)};
+
+if(el('memoryBack')&&el('memoryClose'))el('memoryBack').onclick=el('memoryClose').onclick=()=>{el('memoryDetail').classList.remove('on');document.body.style.overflow=''};
+if(el('detailThumbs'))el('detailThumbs').onclick=e=>{const im=e.target.closest('[data-detail-photo]');if(!im)return;el('detailMainPhoto').src=im.src;el('detailThumbs').querySelectorAll('img').forEach(x=>x.classList.remove('on'));im.classList.add('on')};
+el('viewerClose').onclick=()=>{el('photoViewer').classList.remove('on');document.body.style.overflow=''};
+if(el('detailEdit'))el('detailEdit').onclick=()=>{const id=el('memoryDetail').dataset.recordId;el('memoryDetail').classList.remove('on');document.body.style.overflow='';startEditRecord(id)};
+
+if(el('saveGreeting'))el('saveGreeting').onclick=()=>{
+ const v=(el('settingGreeting').value||'').trim()||'Good Day, 美女 ♡';
+ localStorage.setItem(GREETING_KEY,v);renderGreeting();
+ el('saveGreeting').textContent='已儲存 ✓';
+ setTimeout(()=>el('saveGreeting').textContent='儲存問候語',900);
+};
+renderGreeting();
+try{render();if('requestIdleCallback'in window){requestIdleCallback(summary,{timeout:500})}else{setTimeout(summary,0)}}catch(err){console.error(err);const st=el('stage');st.innerHTML='';TYPES.forEach((c,i)=>{const card=document.createElement('article');card.className='card '+(i===2?'a':i===1?'l':i===3?'r':'off');card.dataset.index=i;card.innerHTML='<div class="fallback">'+c[2]+'</div><div class="shade"></div><div class="info"><b>'+c[0]+'</b><p>'+c[1]+'</p></div>';st.appendChild(card)})}
+})();
+</script>
+
+
+
+
+<script id="greetingSettingsJS">
+(function(){
+  const KEY='mylife_home_greeting';
+  const DEFAULT='DAILY';
+
+  function value(){
+    return localStorage.getItem(KEY) || DEFAULT;
+  }
+  function updateHome(){
+    const v=value();
+    /* Current homepage greeting is inside .hello b */
+    const candidates=[
+      document.querySelector('.hello b'),
+      document.querySelector('.hello strong'),
+      document.querySelector('[data-greeting]')
+    ];
+    for(const el of candidates){ if(el){ el.textContent=v; break; } }
+    const input=document.getElementById('homeGreetingInput2');
+    if(input) input.value=v;
+  }
+  function bind(){
+    updateHome();
+    const btn=document.getElementById('saveHomeGreeting2');
+    if(btn && !btn.dataset.bound){
+      btn.dataset.bound='1';
+      btn.addEventListener('click',function(){
+        const input=document.getElementById('homeGreetingInput2');
+        const v=(input && input.value.trim()) || DEFAULT;
+        localStorage.setItem(KEY,v);
+        updateHome();
+        const old=btn.textContent;
+        btn.textContent='已儲存 ✓';
+        setTimeout(()=>btn.textContent=old,900);
+      });
+    }
+  }
+  document.addEventListener('DOMContentLoaded',bind);
+  document.addEventListener('click',()=>setTimeout(bind,30));
+  window.addEventListener('pageshow',bind);
+  window.addEventListener('storage',updateHome);
+})();
+</script>
+
+
+<script id="autoGreetingFontSize">
+(function(){
+  function resizeGreeting(){
+    const el =
+      document.querySelector('.hello b') ||
+      document.querySelector('[data-greeting]');
+    if(!el) return;
+
+    const n = Array.from((el.textContent || '').trim()).length;
+    let px = 29;
+    if(n > 12) px = 26;
+    if(n > 18) px = 23;
+    if(n > 24) px = 20;
+    if(n > 32) px = 18;
+    if(n > 42) px = 16;
+
+    el.style.fontSize = px + 'px';
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    resizeGreeting();
+
+    const el =
+      document.querySelector('.hello b') ||
+      document.querySelector('[data-greeting]');
+    if(el){
+      new MutationObserver(resizeGreeting).observe(el,{
+        childList:true,
+        characterData:true,
+        subtree:true
+      });
+    }
+
+    const save = document.getElementById('saveHomeGreeting2');
+    if(save) save.addEventListener('click', function(){
+      setTimeout(resizeGreeting, 20);
+    });
+  });
+
+  window.addEventListener('pageshow', resizeGreeting);
+  window.addEventListener('resize', resizeGreeting);
+})();
+</script>
+
+
+<script id="permanentScrollUnlockFix">
+(function(){
+  function anyOverlayOpen(){
+    const modalOpen = Array.from(document.querySelectorAll('.modal')).some(m=>m.classList.contains('on'));
+    const viewer = document.getElementById('photoViewer');
+    const detail = document.getElementById('memoryDetail');
+    return modalOpen ||
+      (viewer && viewer.classList.contains('on')) ||
+      (detail && detail.classList.contains('on'));
+  }
+  function repair(){
+    if(!anyOverlayOpen()){
+      document.body.classList.remove('modalLocked');
+      document.body.style.position='';
+      document.body.style.top='';
+      document.body.style.width='';
+      document.body.style.overflow='';
+      document.documentElement.style.overflowY='';
+    }
+  }
+  document.addEventListener('click',()=>setTimeout(repair,80),true);
+  document.addEventListener('touchend',()=>setTimeout(repair,80),{passive:true});
+  window.addEventListener('pageshow',repair);
+  window.addEventListener('focus',repair);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)setTimeout(repair,30)});
+})();
+</script>
+
+
+<script id="finalGreetingAutoSize">
+(function(){
+ function resizeGreeting(){
+   const el=document.getElementById('greetingText');
+   if(!el)return;
+   const n=Array.from((el.textContent||'').trim()).length;
+   let px=28;
+   if(n>12)px=25;
+   if(n>18)px=22;
+   if(n>24)px=20;
+   if(n>32)px=18;
+   if(n>42)px=16;
+   el.style.fontSize=px+'px';
+ }
+ document.addEventListener('DOMContentLoaded',()=>{
+   resizeGreeting();
+   const el=document.getElementById('greetingText');
+   if(el)new MutationObserver(resizeGreeting).observe(el,{childList:true,characterData:true,subtree:true});
+ });
+ window.addEventListener('pageshow',resizeGreeting);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="v86StableScrollController">
+(function(){
+  function greetingEl(){
+    return document.getElementById('greetingText') || document.querySelector('.hello b');
+  }
+
+  function resizeGreeting(){
+    const el=greetingEl(); if(!el)return;
+    const n=Array.from((el.textContent||'').trim()).length;
+    let px=29;
+    if(n>8)px=27;if(n>14)px=24;if(n>20)px=21;if(n>28)px=18;if(n>38)px=16;if(n>50)px=14;
+    el.style.fontSize=px+'px';
+  }
+
+  function anyOverlayOpen(){
+    return !!document.querySelector('.modal.on,.photoViewer.on,.memoryDetail.on');
+  }
+
+  function forceUnlockIfSafe(){
+    if(anyOverlayOpen()) return;
+    document.body.classList.remove('modalLocked');
+    document.body.style.position='';
+    document.body.style.top='';
+    document.body.style.width='';
+    document.body.style.left='';
+    document.body.style.right='';
+    document.body.style.overflow='';
+  }
+
+  function syncView(){
+    const panel=document.getElementById('panel');
+    const home=!(panel && panel.classList.contains('on'));
+
+    document.body.classList.toggle('homeFixed',home);
+    document.body.classList.toggle('categoryScroll',!home);
+    document.documentElement.classList.toggle('categoryScroll',!home);
+
+    if(home){
+      document.body.classList.remove('categoryScroll');
+      document.documentElement.classList.remove('categoryScroll');
+      resizeGreeting();
+    }else{
+      forceUnlockIfSafe();
+      document.body.style.height='auto';
+      document.body.style.minHeight='100vh';
+      document.body.style.overflowY='auto';
+      document.documentElement.style.overflowY='auto';
+    }
+  }
+
+  function installCarouselGestureGuard(){
+    const stage=document.getElementById('stage');
+    if(!stage || stage.dataset.v86Gesture)return;
+    stage.dataset.v86Gesture='1';
+    let sx=0,sy=0,horizontal=false;
+
+    stage.addEventListener('touchstart',e=>{
+      if(!document.body.classList.contains('homeFixed'))return;
+      const t=e.touches[0];
+      sx=t.clientX; sy=t.clientY; horizontal=false;
+    },{passive:true});
+
+    stage.addEventListener('touchmove',e=>{
+      if(!document.body.classList.contains('homeFixed'))return;
+      const t=e.touches[0];
+      const dx=Math.abs(t.clientX-sx), dy=Math.abs(t.clientY-sy);
+      if(!horizontal && dx>8 && dx>dy*1.15) horizontal=true;
+      if(horizontal && e.cancelable)e.preventDefault();
+    },{passive:false});
+  }
+
+  document.addEventListener('DOMContentLoaded',()=>{
+    syncView();
+    resizeGreeting();
+    installCarouselGestureGuard();
+
+    const panel=document.getElementById('panel');
+    if(panel){
+      new MutationObserver(()=>setTimeout(syncView,0))
+        .observe(panel,{attributes:true,attributeFilter:['class']});
+    }
+
+    const g=greetingEl();
+    if(g){
+      new MutationObserver(resizeGreeting)
+        .observe(g,{childList:true,characterData:true,subtree:true});
+    }
+  });
+
+  document.addEventListener('click',()=>setTimeout(syncView,30),true);
+  window.addEventListener('pageshow',()=>{forceUnlockIfSafe();syncView();});
+})();
+</script>
+
+
+<script id="v87CanonicalOrder">
+(function(){
+  const ORDER=['FAVORITE','MEMORY','DAILY','BEAUTY','SPENDING','HEALTH'];
+
+  function enforceOrder(){
+    const cards=[...document.querySelectorAll('.card[data-key]')];
+    if(cards.length!==6)return;
+    const parent=cards[0].parentElement;
+    ORDER.forEach(key=>{
+      const c=cards.find(x=>x.dataset.key===key);
+      if(c)parent.appendChild(c);
+    });
+  }
+
+  function enforceAfterRender(){
+    requestAnimationFrame(()=>{
+      enforceOrder();
+      requestAnimationFrame(enforceOrder);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded',enforceAfterRender);
+  document.addEventListener('click',()=>setTimeout(enforceAfterRender,40),true);
+  window.addEventListener('pageshow',enforceAfterRender);
+
+  const root=document.getElementById('stage') || document.body;
+  new MutationObserver(enforceAfterRender).observe(root,{childList:true,subtree:true});
+})();
+</script>
+
+
+<script id="v91MemoryMoodTapFix">
+(function(){
+  function chooseMood(btn){
+    if(!btn)return;
+    const hidden=document.getElementById('memoryMood');
+    if(hidden) hidden.value=btn.dataset.mood||'';
+    document.querySelectorAll('#moodPicker button[data-mood]').forEach(x=>{
+      x.classList.toggle('selected',x===btn);
+      x.setAttribute('aria-pressed',x===btn?'true':'false');
+    });
+  }
+
+  const picker=document.getElementById('moodPicker');
+  if(picker){
+    picker.addEventListener('pointerup',function(e){
+      const b=e.target.closest('button[data-mood]');
+      if(!b)return;
+      e.preventDefault();
+      e.stopPropagation();
+      chooseMood(b);
+    });
+  }
+
+  /* 每次新增回憶時確保表單本身可互動 */
+  const add=document.getElementById('addModal');
+  if(add){
+    new MutationObserver(()=>{
+      if(add.classList.contains('on')){
+        add.style.pointerEvents='auto';
+        const sheet=add.querySelector('.sheet');
+        if(sheet)sheet.style.pointerEvents='auto';
+      }
+    }).observe(add,{attributes:true,attributeFilter:['class']});
+  }
+})();
+</script>
+
+
+
+
+
+<script id="v93MemoryPhotoDelete">
+(function(){
+  const input=document.getElementById('memoryPhotos');
+  const preview=document.getElementById('memoryPhotoPreview');
+  if(!input||!preview)return;
+
+  let files=[];
+
+  function setInputFiles(){
+    const dt=new DataTransfer();
+    files.forEach(f=>dt.items.add(f));
+    input.files=dt.files;
+  }
+
+  function draw(){
+    preview.innerHTML='';
+    files.forEach((file,i)=>{
+      const box=document.createElement('div');
+      box.className='memoryPreviewItem';
+
+      const img=document.createElement('img');
+      const url=URL.createObjectURL(file);
+      img.src=url;
+      img.onload=()=>URL.revokeObjectURL(url);
+
+      const del=document.createElement('button');
+      del.type='button';
+      del.className='memoryPhotoRemove';
+      del.textContent='×';
+      del.setAttribute('aria-label','刪除這張照片');
+      del.onclick=function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        files.splice(i,1);
+        setInputFiles();
+        draw();
+      };
+
+      box.append(img,del);
+      preview.appendChild(box);
+    });
+  }
+
+  /* capture phase runs before the app's original onchange property handler */
+  input.addEventListener('change',function(){
+    files=[...input.files];
+    setTimeout(draw,0);
+  },true);
+
+  document.addEventListener('click',function(e){
+    const opener=e.target.closest('#memoryAddBtn,#directMemoryBtn');
+    if(opener){
+      files=[];
+      input.value='';
+      preview.innerHTML='';
+    }
+  },true);
+})();
+</script>
+
+
+<div id="saveSuccessToast" class="saveSuccessToast" role="status" aria-live="polite">
+  <span class="saveToastIcon">✓</span>
+  <span>儲存成功</span>
+</div>
+
+
+<script id="v95ToastController">
+(function(){
+  let toastTimer=null;
+  window.showSaveSuccess=function(message){
+    const t=document.getElementById('saveSuccessToast');
+    if(!t)return;
+    const label=t.querySelector('span:last-child');
+    if(label)label.textContent=message||'儲存成功';
+    clearTimeout(toastTimer);
+    t.classList.remove('show');
+    void t.offsetWidth;
+    t.classList.add('show');
+    toastTimer=setTimeout(()=>t.classList.remove('show'),1800);
+  };
+})();
+</script>
+
+</body></html>
